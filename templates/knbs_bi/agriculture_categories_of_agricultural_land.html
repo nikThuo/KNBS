@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Categories of Agricultural Land</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Loyalty Club dashboard" />
+		<meta name="keywords" content="web,loyalty club" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+        {% load staticfiles %}
+
+		<link rel="shortcut icon" href="{% static 'knbs_bi/assets/images/icon.png ' %}">
+
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}"  rel="stylesheet">
+
+
+         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript">
+
+            function load_potential(id, county, high_potential, medium_potential, low_potential, total_land,
+            all_other_land, total_land_area){
+                localStorage.clear();
+                localStorage.setItem("id", id);
+                localStorage.setItem("county", county);
+                localStorage.setItem("high_potential", high_potential);
+                localStorage.setItem("medium_potential", medium_potential);
+                localStorage.setItem("low_potential", low_potential);
+                localStorage.setItem("total_land", total_land);
+                localStorage.setItem("all_other_land", all_other_land);
+                localStorage.setItem("total_land_area", total_land_area);
+                window.location.replace("/categories_of_agricultural_land_edit");
+
+            }
+        </script>
+
+
+    </head>
+    <body>
+
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Categories of Agricultural Land</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Categories of Agricultural Land Data</span>
+
+                                {% if categories %}
+
+								<a href="/categories_of_agricultural_land_add" class="btn maroon waves-effect waves-light " >Add
+									<i class="material-icons right">add</i>
+								</a>
+
+                               <table id="example" class="display responsive-table datatable-example">
+                                    <thead>
+                                        <tr>
+											<th></th>
+                                            <th>County</th>
+											<th>High Potential</th>
+											<th>Medium Potential</th>
+                                            <th>Low Potential</th>
+                                            <th>Total Land</th>
+                                            <th>All Other Land</th>
+                                            <th>Total Land Area</th>
+											<th>Edit </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										{% for category in categories %}
+                                        <tr>
+											<td></td>
+											<td >{{ category.county }}</td>
+                                            <td >{{ category.high_potential }}</td>
+											<td >{{ category.medium_potential }}</td>
+											<td >{{ category.low_potential }}</td>
+                                            <td >{{ category.total_land }}</td>
+                                            <td >{{ category.all_other_land }}</td>
+                                            <td >{{ category.total_land_area }}</td>
+                                            <td ><button class="waves-effect waves-light btn orange " onclick="load_potential({{ category.id }},'{{ category.county }}'
+                                                    , {{ category.high_potential }}, {{ category.medium_potential }}, {{ category.low_potential }}
+                                                    ,{{ category.total_land }}, {{ category.all_other_land }}, {{ category.total_land_area }})"> Edit </button></td></tr>
+										{% endfor %}
+                                    </tbody>
+                                </table>
+
+                                {% else %}
+											<p> You currently have no data</p>
+								{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/table-data.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+
+    </body>
+</html>

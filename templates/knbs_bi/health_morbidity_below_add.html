@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Morbidity Below 5Yrs | Add</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+
+
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">County Outpatient Morbidity for Patients Below 5 Years of Age</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Morbidity for Patients Below 5 Years of Age Add</span><br>
+								<a href="/morbidity_below_history" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="" class="col s12">
+
+                                    {% csrf_token %}
+
+										<div class="row">
+											 <div class="input-field col m6 s12">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+											<div class="input-field col m6 s12">
+												<select name="county_id" id="county_id">
+													<option value="">County...</option>
+													{% for county in counties %}
+                                                        <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+										</div>
+										<div class="row">
+                                            <div class="input-field col m6 s12">
+												<select name="disease_id" id="disease_id">
+													<option value="">Disease...</option>
+													{% for disease in diseases %}
+                                                        <option value="{{ disease.disease_name }}">{{ disease.disease_name }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+											<div class="input-field col s12 m6 l4">
+												<input class="validate" id="data" name="data" type="text" required>
+                                                <label for="data">*Number </label>
+                                            </div>
+
+										</div>
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" id="addBelowFive" name="submit">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+
+{#		<script type="text/javascript">#}
+{##}
+{#			$('input.validate').keyup(function(event) {#}
+{##}
+{#			  // skip for arrow keys#}
+{#			  if(event.which >= 37 && event.which <= 40) return;#}
+{##}
+{#			  // format number#}
+{#			  $(this).val(function(index, value) {#}
+{#				return value#}
+{#				.replace(/\D/g, "")#}
+{#				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")#}
+{#				;#}
+{#			  });#}
+{#			});#}
+{##}
+{#		</script>#}
+
+        <script type="text/javascript">
+
+            $("#addBelowFive").click(function (e) {
+                e.preventDefault();
+{#                console.log('Here')#}
+                var address = ["/health/add_below_five"];
+                var arrayLength = address.length;
+                for (var i = 0; i < arrayLength; i++) {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": address[i],
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "county": $('#county_id').val(),
+                            "disease": $('#disease_id').val(),
+                            "data": $('#data').val(),
+                            "year": $('#year').val()
+                        }
+                    }
+                    $('#county_id').val('');
+                    $('#disease_id').val('');
+                    $('#data').val('');
+                    $('#year').val('');
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Record Added");
+                        console.log(response);
+                    });
+                }
+            })
+
+        </script>
+
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

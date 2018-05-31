@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Agriculture Cooperatives Input</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Agriculture Cooperatives Input</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Agriculture Cooperatives Details</span><br>
+								<a href="/cooperatives" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="" class="col s12">
+
+                                        {% csrf_token %}
+
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											 </div>
+
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="coffee" name="coffee" required>
+												<label for="ahero_gross_value_of_crop_millions">*Coffee</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="cotton" name="cotton" required>
+												<label for="ahero_hectares_cropped ">*Cotton</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="pyrethrum" name="pyrethrum" required>
+												<label for="ahero_number_of_plots_holders">*Pyrethrum</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="sugar" name="sugar" required>
+												<label for="ahero_paddy_yields_tonnes">*Sugar</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="dairy" name="dairy" required>
+												<label for="ahero_payments_to_plot_holders_millions">*Dairy</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="purpose" name="purpose" required>
+												<label for="all_schemes_gross_value_of_crop_millions">*Multi-Purpose</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="farm" name="farm" required>
+												<label for="all_schemes_hectares_cropped">*Farm Purchase</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="fisheries" name="fisheries" required>
+												<label for="all_schemes_number_of_plots_holders">*Fisheries</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="agricultural" name="agricultural" required>
+												<label for="all_schemes_paddy_yields_tonnes">*Other Agricultural</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="saccos" name="saccos" required>
+												<label for="all_schemes_payments_to_plot_holders_millions">*Saccos</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="consumer" name="consumer" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Consumer</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="housing" name="housing" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Housing</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="craft" name="craft" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Crafts Men</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="transport" name="transport" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Transport</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="other" name="other" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Other Non-Agricultural</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="unions" name="unions" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Unions</label>
+											</div>
+
+										</div>
+
+
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " id="updateData" name="submit">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+        <script>
+
+            $ (function (){
+                $('select#year').val(localStorage.getItem("year"));$('select#year').material_select();
+                $('#coffee').val(localStorage.getItem("coffee"));
+                $('#cotton').val(localStorage.getItem("cotton"));
+                $('#pyrethrum').val(localStorage.getItem("pyrethrum"));
+                $('#sugar').val(localStorage.getItem("sugar"));
+                $('#dairy').val(localStorage.getItem("dairy"));
+                $('#purpose').val(localStorage.getItem("purpose"));
+                $('#farm').val(localStorage.getItem("farm"));
+                $('#fisheries').val(localStorage.getItem("fisheries"));
+                $('#agricultural').val(localStorage.getItem("agricultural"));
+                $('#saccos').val(localStorage.getItem("saccos"));
+                $('#consumer').val(localStorage.getItem("consumer"));
+                $('#housing').val(localStorage.getItem("housing"));
+                $('#craft').val(localStorage.getItem("craft"));
+                $('#transport').val(localStorage.getItem("transport"));
+                $('#other').val(localStorage.getItem("other"));
+                $('#unions').val(localStorage.getItem("unions"));
+            });
+{#            console.log($('#year'),$('#cattle'),$('#dips'),$('#fungicides'),$('#herbicides'),$('#insecticides'), $('#feeds'), $('#drugs'),#}
+{#            $('#pig_feed'), $('#plant'), $('#poultry'), $('#vaccines'));#}
+
+            $("#updateData").click(function (e) {
+                e.preventDefault();
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/agriculture/edit_cooperatives",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "year": $('#year').val(),
+                            "coffee": $('#coffee').val(),
+                            "cotton": $('#cotton').val(),
+                            "pyrethrum": $('#pyrethrum').val(),
+                            "sugar": $('#sugar').val(),
+                            "dairy": $('#dairy').val(),
+                            "purpose": $('#purpose').val(),
+                            "farm": $('#farm').val(),
+                            "fisheries": $('#fisheries').val(),
+                            "agricultural": $('#agricultural').val(),
+                            "saccos": $('#saccos').val(),
+                            "consumer": $('#consumer').val(),
+                            "housing": $('#housing').val(),
+                            "craftsmen": $('#craft').val(),
+                            "transport": $('#transport').val(),
+                            "non_agric": $('#other').val(),
+                            "unions": $('#unions').val(),
+                            "cooperative": localStorage.getItem("id")
+                        }
+                    }
+                    $('#year').val('');
+                    $('#coffee').val('');
+                    $('#cotton').val('');
+                    $('#pyrethrum').val('');
+                    $('#sugar').val('');
+                    $('#dairy').val('');
+                    $('#purpose').val('');
+                    $('#farm').val('');
+                    $('#fisheries').val('');
+                    $('#agricultural').val('');
+                    $('#saccos').val('');
+                    $('#consumer').val('');
+                    $('#housing').val('');
+                    $('#craft').val('');
+                    $('#transport').val('');
+                    $('#other').val('');
+                    $('#unions').val('');
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Editted Successfully");
+                        console.log(response);
+                    });
+
+            })
+
+        </script>
+
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

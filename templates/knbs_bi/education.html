@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Education</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Mastamap Webapp" />
+		<meta name="keywords" content="web,mastamap" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+                     <main class="mn-inner inner-active-sidebar">
+                <div class="content">
+                    <p style="font-family:verdana; color:#73bf5a;"> <strong>County Datasets</strong></p>
+                    <div class="row no-m-t no-m-b">
+
+
+{#                     <!--total_secondary_school_enrollment_by_year_data-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="/total_secondary_school_enrollment_by_year_data">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title"> County Secondary School - Enrollment</span>#}
+{#									<?php#}
+{#										$response = total_single_year("number_of_students","total_secondary_school_enrollment_by_year_data");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small id="county_sse"></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+
+					 <!--Primary Schools by Category and Sub-County-->
+					<div class="col s12 m12 l4">
+						<a href="/primary_schools_by_category_and_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Primary Schools Category and Sub-County</span>
+									<?php
+										$response = total_single_year("approved_degree_programmes","approved_degree_and_validated_diploma_programs");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_pscs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+					<!--Secondary Enrollment Access Indicators-->
+					<div class="col s12 m12 l4">
+						<a href="/secondary_enrolment_and_access_indicators">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Secondary Enrollment Access Indicators</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_seai"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Primary Enrollment by Class, Sex and Sub-County-->
+					<div class="col s12 m12 l4">
+						<a href="/primary_enrollment_class_sex_and_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Primary Enrollment by Class, Sex, Sub-County</span>
+									<?php
+										$response = total_single_year("approved_degree_programmes","approved_degree_and_validated_diploma_programs");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_pecss"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Student Enrollment in Youth in Polytechnics-->
+					<div class="col s12 m12 l4">
+						<a href="/student_enrolment_in_youth_polytechnics">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Student Enrollment in Youth in Polytechnics</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_seyp"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Teacher Training Colleges-->
+					<div class="col s12 m12 l4">
+						<a href="/teacher_training_colleges">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Teacher Training Colleges</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_ttc"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--ECDE Centres by Category and Subcounty-->
+					<div class="col s12 m12 l4">
+						<a href="/ecde_centres_by_category_and_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County ECDE Centres by Category and Subcounty</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_eccs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Youth Polytecnics by Category and Sub County-->
+					<div class="col s12 m12 l4">
+						<a href="/youth_polytechnics_category_and_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Youth Polytecnics by Category and Sub County</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_ypcs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Adult Education Proficiency Test Results-->
+					<div class="col s12 m12 l4">
+						<a href="/adult_education_proficiency_test_results">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Adult Education Proficiency Test Results</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_aeptr"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+                            {#ALREADY DONE#}
+
+                    <!--Primary Enrollment and Access Indicators-->
+					<div class="col s12 m12 l4">
+						<a href="/primary_enrolment_and_access_indicators">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Primary Enrollment and Access Indicators</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_peai"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Adult Education Centres by Subcounty-->
+					<div class="col s12 m12 l4">
+						<a href="/adult_education_centres_by_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Adult Education Centres by Subcounty</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_aecs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Adult Education Enrollment by Sex and Subcounty-->
+					<div class="col s12 m12 l4">
+						<a href="/adult_education_enrolment_by_sex_and_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Adult Education Enrollment by Sex and Subcounty</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_aeess"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Secondary School Enrollment by Class, Sex and Sub-County-->
+					<div class="col s12 m12 l4">
+						<a href="/secondary_enrollment_class_sex_subcounty">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Secondary School Enrollment by Class, Sex and Sub-County</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--ECDE Enrollment and Enrollment Rates by County-->
+					<div class="col s12 m12 l4">
+						<a href="/edstat_ecde_enrollment_and_enrollment_rates_by_county">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">ECDE Enrollment and Enrollment Rates by County</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Primary Enrollment and Enrollment Rates by County-->
+					<div class="col s12 m12 l4">
+						<a href="/edstat_primary_enrollment_and_enrollment_rates_by_county">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Primary Enrollment and Enrollment Rates by County</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Secondary Enrollment and Enrollment Rates by County-->
+                    <div class="row no-m-t no-m-b">
+					<div class="col s12 m12 l4">
+						<a href="/edstat_secondary_enrollment_and_enrollment_rates_by_county">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Secondary Enrollment and Enrollment Rates by County</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+                    </div><br>
+
+                    <p style="font-family:verdana; color:#73bf5a;"> <strong>National Datasets</strong></p>
+
+                    <!--Approved Degree and Diploma Programs-->
+					<div class="col s12 m12 l4">
+						<a href="/approved_degree_diploma_programs">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Approved Degree and Diploma Programs</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+
+
+                    <!--Student Enrollment in Public Universities-->
+					<div class="col s12 m12 l4">
+						<a href="/student_enrollment_public_universities">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Student Enrollment in Public Universities</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--KCPE Examination Candidature-->
+					<div class="col s12 m12 l4">
+						<a href="/edstat_kcpe_examination_candidature_add">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">KCPE Examination Candidature</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--KCPE Examination Results by Subject-->
+					<div class="col s12 m12 l4">
+						<a href="/edstat_kcpe_examination_results_by_subject">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">KCPE Examination Results by Subject</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--KCSE Examination Results-->
+                    <div class="row no-m-t no-m-b">
+					<div class="col s12 m12 l4">
+						<a href="/edstat_kcse_examination_results">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">KCSE Examination Results</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+                    </div><br>
+
+                    <!--Student Enrollment by Sex in Technical Institutions-->
+					<div class="col s12 m12 l4">
+						<a href="/student_enrollment_sex_technical_institutions">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Student Enrollment by Sex in Technical Institutions</span>
+									<?php
+										$response = total_single_year("a_plain","national_trends_in_kcse_candidates_mean_grade_by_sex");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id=""></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+
+
+                </div>
+
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+
+        <script>
+            var requests = [{year: "county_sse", id: "#county_sse"}, {year:"county_pscs", id:"#county_pscs"},
+             {year:"county_seai", id:"#county_seai"}, {year:"county_pecss", id:"#county_pecss"}, {year:"county_seyp", id:"#county_seyp"},{year:"county_ttc", id:"#county_ttc"},
+            {year:"county_eccs", id:"#county_eccs"}, {year:"county_ypcs", id:"#county_ypcs"}, {year:"county_peai", id:"#county_peai"},
+                {year:"county_aecs", id:"#county_aecs"}, {year:"county_aeess", id:"#county_aeess"}, {year:"county_aeptr", id:"#county_aeptr"}]
+
+            function getYear(obj){
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/getYear",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                            "postman-token": "1c2e1c70-01df-4d94-94d9-3ffcde3ae041"
+                        },
+                        "data": {
+                            "year": obj.year
+                        }
+                    }
+                    {#                                            console.log("Passed", $('#county_revenue').val())#}
+                    $.ajax(settings).done(function (data) {
+                        $(obj.id).text("Last Update: " + data.year.year__max);
+                        {#                                                console.log('debug recent', JSON.stringify(data, null, 4));#}
+                        {#                                              $('#county_revenue').val("data")#}
+                        {#                                                document.getElementById('county_revenue').innerHTML += " "                                              console.log(data);#}
+                    });
+
+
+            }
+            requests.map(getYear)
+        </script>
+
+
+{#		<?php#}
+{#		if ($error!=null) {#}
+{#		?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php  $error; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

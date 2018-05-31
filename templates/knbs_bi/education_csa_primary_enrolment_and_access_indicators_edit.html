@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Primary Enrollment and Access Indicators</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Primary Enrollment and Access Indicators</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Primary Enrollment and Access Indicators Details</span><br>
+								<a href="/primary_enrolment_and_access_indicators" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="POST" class="col s12">
+
+                                    {% csrf_token %}
+
+                                        <div class="row">
+                                                <div class="input-field col m6 s12">
+												<select name="county_id" id="county_id">
+													<option value="">County...</option>
+													{% for county in counties %}
+                                                        <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                                                    {% endfor %}
+												</select>
+											    </div>
+                                                <div class="input-field col s12 m6">
+                                                    <input name="enrollment" id="enrollment" type="number"  class="validate" required>
+                                                    <label for="enrollment">*Enrollment</label>
+                                                </div>
+                                                <div class="input-field col s12 m6">
+                                                    <input name="ger" id="ger" type="number"  class="validate" required>
+                                                    <label for="ger">*Gross Enrollment Net</label>
+                                                </div>
+                                                <div class="input-field col s12 m6">
+                                                    <input name="ner" id="ner" type="number"  class="validate" required>
+                                                    <label for="ner">*Net Enrollment Net</label>
+                                                </div>
+
+                                                <div class="input-field col m6 s12">
+												<select name="gender" id="gender">
+													<option value="male">Male</option>
+                                                    <option value="female">Female</option>
+
+												</select>
+											    </div>
+                                                <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											    </div>
+
+
+
+										</div>
+
+
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" id="updateData">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    <script>
+
+            $ (function (){
+                $('select#county_id').val(localStorage.getItem("county"));
+                $('select#county_id').material_select();
+                $('#enrollment').val(localStorage.getItem("enrollment"));
+                $('#ger').val(localStorage.getItem("ger"));
+                $('#ner').val(localStorage.getItem("ner"));
+                $('select#gender').val(localStorage.getItem("gender"));$('select#gender').material_select();
+                $('select#year').val(localStorage.getItem("year"));
+                $('select#year').material_select();
+            });
+
+            $("#updateData").click(function (e) {
+                e.preventDefault();
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/education/edit_primary_enrollment_indicators",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "county": $('#county_id').val(),
+                            "enrolment": $('#enrollment').val(),
+                            "ner": $('#ner').val(),
+                            "ger": $('#ger').val(),
+                            "gender": $('#gender').val(),
+                            "year": $('#year').val(),
+                            "primary_id": (localStorage.getItem("id"))
+                        }
+                    }
+{#                    console.log("Gender", $('#gender').val());#}
+                    $('#county_id').val('');
+                    $('#enrollment').val('');
+                    $('#ner').val('');
+                    $('#ger').val('');
+                    $('#gender').val('');
+                    $('#year').val('');
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Editted Successfully");
+                        console.log(response);
+                    });
+
+            })
+
+        </script>
+
+    </body>
+</html>

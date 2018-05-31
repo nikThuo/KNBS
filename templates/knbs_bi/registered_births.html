@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>NHIF Resources | History</title>
+		<meta charset="utf-8">
+		<meta name="description" content="KNBS dashboard" />
+		<meta name="keywords" content="web,knbs" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+        {% load staticfiles %}
+
+
+		<link rel="shortcut icon" href="{% static 'knbs_bi/assets/images/icon.png' %}">
+
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+        
+{#        <script>#}
+{#            localStorage.clear();#}
+{#            function load_edit_births(datas) {#}
+{#                var dt = $("#trial").attr("data");#}
+{#                console.log('Here I am');#}
+{#                console.log(dt.county);#}
+{#                alert(datas)#}
+{#                console.log('Here');#}
+{#                console.log(datas);#}
+{##}
+{#                var table = document.getElementById("example").getElementsByTagName("td")#}
+{#                for ( var i = 0; i < table.length; i++ )#}
+{#                    table[i].onclick = getVal;#}
+{#                var data = localStorage.setItem("reg_births", datas);#}
+{#                var data = localStorage.getItem({{ reg_births }})#}
+{#                var birt = localStorage#}
+{#                    {% if reg_births %}#}
+{#                        {% for load in reg_births %}#}
+{#                            var birth_id = {{ load.birth_id }}#}
+{#                            var county = {{ load.county }}#}
+{#                            var year = {{ load.year }}#}
+{#                            var facility = {{ load.health_facility }}#}
+{#                            var home = {{ load.home }}#}
+{#                        {% endfor %}#}
+{#                    {% endif%}#}
+{#               // var href = $this.attr("href", "/registered_births_edit/");#}
+{#                var self = $(this);#}
+{#                $.ajax({#}
+{#                    type:'POST',#}
+{#                    url: "/registered_births_edit/" ,#}
+{#                    data: {id:datas},#}
+{#                    success:function (data) {#}
+{#                        console.log('re');#}
+{#                        console.log(datas);#}
+{#                        $('#county').val(datas);#}
+{#                        alert('Done');#}
+{#                        console.log(data);#}
+{#                    }#}
+{#                });#}
+{#                return false;#}
+{#            }#}
+{#            console.log("Fetched")#}
+{#            #}
+{#        </script>#}
+
+        <script>
+            localStorage.clear();
+            function load_births(birth_id, county, year, facility, home) {
+{#                //console.log(birth_id, county, year, facility, home);#}
+                localStorage.setItem("id", birth_id);
+                localStorage.setItem("county", county);
+                localStorage.setItem("year", year);
+                localStorage.setItem("facility", facility);
+                localStorage.setItem("home", home);
+                //get_births = localStorage.getItem("id");
+                var facility = localStorage.getItem("facility").replace(/[^\d\.\-\ ]/g, '');
+
+                //console.log(facility);
+{#                //return "{% url "/registered_births_edit/ " %}";#}
+{#                $.ajax({#}
+{#                    type: 'POST',#}
+{#                    url: '/registered_births_edit/',#}
+{#                    data: {},#}
+{#                    success: function () {#}
+{##}
+{#                    }#}
+{##}
+{#                });#}
+
+
+            }
+
+        </script>
+
+
+
+    </head>
+    <body>
+
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Registered Births and Occurrences</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Registered Births and Occurrences Details</span>
+{#								<?php#}
+{##}
+{#									$query_immune = "SELECT * FROM health_nhif_resources ORDER BY resource_id DESC";#}
+{#									$info = mysqli_query($con,$query_immune);#}
+{#									// Return the number of rows in result set#}
+{#									$rowcount=mysqli_num_rows($info);#}
+{#									if($rowcount>0){#}
+{#								?>#}
+                                {% if reg_births %}
+                                    <a href="" class="btn maroon waves-effect waves-light " >Add
+                                        <i class="material-icons right">add</i>
+                                    </a>
+
+                                   <table id="example" class="display responsive-table datatable-example">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>County</th>
+                                                <th>Year</th>
+                                                <th>Health Facility</th>
+                                                <th>Home</th>
+                                                <th>Edit </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+    {#										<?php#}
+    {#											while ($row = mysqli_fetch_assoc($info)){#}
+    {#										?>#}
+                                            {% for birth in reg_births %}
+                                                <div id="trial" data-touse="{{ birth }}" data="{{ birth }}"></div>
+                                            <tr>
+                                                <td></td>
+                                                <td >{{birth.county}} </td>
+                                                <td >{{birth.year}}</td>
+                                                <td >{{birth.health_facility}}</td>
+                                                <td >{{birth.home}}</td>
+                                                <td ><a id="edit" href="/registered_births_edit/" type="button" onclick="load_births({{ birth.birth_id }}, {{ birth.county }}, {{ birth.year }},{{ birth.health_facility }}, {{ birth.home }})" class="waves-effect waves-light btn orange "> Edit </a></td>
+                                            </tr>
+    {#										<?php }?>#}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+
+{#								<?php }else{ ?>#}
+                                {% else %}
+                                    <p> You currently have no data</p>
+{#								<?php }?>#}
+                                {% endif %}
+
+{#                             <script>#}
+{##}
+{#                                function birth_data() {#}
+{#                                    var data_births = [{{ reg_births|safe }}];#}
+{#                                    console.log(data_births.stringify)#}
+{#                                    console.log("There");#}
+{#                                    console.log(data_births.county);#}
+{#                                    localStorage.setItem("county", data_births[0]);#}
+{#                                    console.log(data_births[0]);#}
+{#                                    localStorage.setItem("reg_births", JSON.stringify(data_births));#}
+{#                                    console.log("Here");#}
+{#                                    data_string = localStorage.getItem("reg_births");#}
+{#                                    data_element = JSON.parse(data_string);#}
+{#                                    console.log(data_element.county);#}
+{#                                    var href = $(this).attr("href", "/registered_births_edit/");#}
+{#                                    console.log(JSON.stringify(data_births));#}
+{##}
+{#                                    var test_data = $("#trial").attr("data");#}
+{#                                    localStorage.setItem("reg_births", JSON.stringify(test_data));#}
+{#                                    console.log(test_data);#}
+{##}
+{#                                }#}
+{#                             </script>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/table-data.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+
+    </body>
+</html>

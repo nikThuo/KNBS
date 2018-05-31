@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Governance</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Mastamap Webapp" />
+		<meta name="keywords" content="web,mastamap" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner inner-active-sidebar">
+                <div class="content">
+                    <p style="font-family:verdana; color:#73bf5a;"> <strong>County Datasets</strong></p>
+                    <div class="row no-m-t no-m-b">
+
+					<!--Crimes_Reported_To_Police_By_Command_Stations-->
+					<div class="col s12 m12 l4">
+						<a href="/crimes_reported_to_police_by_command_stations">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Crimes Reported By Command Stations</span>
+									<?php
+										$response = total("total_revenue","county_revenue");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_cppcs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+
+					<!--Offence_By_Sex_And_Command_Stations-->
+					<div class="col s12 m12 l4">
+						<a href="/offence_by_sex_and_command_stations">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Offence By Sex And Command Stations</span>
+									<?php
+										$response = total("total","county_expenditure");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_oscs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+					<!--Registered_Voters_By_County_And_By_Sex-->
+                    <div class="row no-m-t no-m-b">
+					<div class="col s12 m12 l4">
+						<a href="/registered_voters_by_county_and_by_sex">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">County Registered Voters By County And By Sex</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="county_rvcs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+                    </div><br>
+
+                        <p style="font-family:verdana; color:#73bf5a;"> <strong>National Datasets</strong></p>
+
+                    <!--Cases_Handled_By_Various_Courts-->
+					<div class="col s12 m12 l4">
+						<a href="/cases_handled_by_various_courts">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Cases Handled By Various Courts</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="cases_handled"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Cases_Forwarded_And_Action_Taken-->
+					<div class="col s12 m12 l4">
+						<a href="/cases_forwarded_and_action_taken">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Cases Forwarded And Action Taken</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="cases_action_taken"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Environmental_Crimes_Reported_To_Nema-->
+					<div class="col s12 m12 l4">
+						<a href="/environmental_crimes_reported_to_nema">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Environmental Crimes Reported To Nema</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="environmental_crimes"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Cases_Handled_By_Ethics_Commision-->
+					<div class="col s12 m12 l4">
+						<a href="/cases_handled_by_ethics_commision">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Cases Handled By Ethics Commision</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="cases_hadled_eacc"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Offences_Committed_Against_Morality-->
+					<div class="col s12 m12 l4">
+						<a href="/offences_committed_against_morality">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Offences Committed Against Morality</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="offences_cam"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Convicted_Prisoners_By_Type_Of_Offence_And_Sex-->
+					<div class="col s12 m12 l4">
+						<a href="/convicted_prisoners_by_type_of_offence_and_sex">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Convicted Prisoners By Type Of Offence And Sex</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="convicted_pyos"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+                    <!--Convicted_Prison_Population_By_Age_And_Sex-->
+					<div class="col s12 m12 l4">
+						<a href="/convicted_prison_population_by_age_and_sex">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Convicted Prison Population By Age And Sex</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="convicted_ppas"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+
+                    <!--Number_Of_Police_Prisons_And_Probation_Officers-->
+					<div class="col s12 m12 l4">
+						<a href="/number_of_police_prisons_and_probation_officers">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Number Of Police Prisons And Probation Officers</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="number_pppo">></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+
+
+                    <!--Persons_Reported_To_Have_Committed_Homicide_By_Sex-->
+					<div class="col s12 m12 l4">
+						<a href="/persons_reported_to_have_committed_homicide_by_sex">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Persons Reported To Have Committed Homicide By Sex</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="persons_rhchs"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+
+                    <!--Persons_Reported_To_Have_Committed_Robbery_And_Theft-->
+					<div class="col s12 m12 l4">
+						<a href="/persons_reported_to_have_committed_robbery_and_theft">
+							<div class="card stats-card">
+								<div class="card-content">
+									<span class="card-title">Persons Reported To Have Committed Robbery And Theft</span>
+									<?php
+										$response = total("total","county_budget_allocation");
+
+										if($response!=0){
+											$total = $response[0]['total'];
+											$year = $response[0]['year'];
+										}
+									?>
+									<span class="stats-counter">
+										<small id="persons_rhcrt"></small>
+										&nbsp
+
+									</span>
+								</div>
+							</div>
+						</a>
+                    </div>
+
+{#                    <!--Cdf Allocation-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="/cdf_allocation">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">Cdf Allocation</span>#}
+{#									<?php#}
+{#										$response = total("total","county_budget_allocation");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+{##}
+{#                    <!--Money and Banking-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="/money_and_banking">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">Money and Banking</span>#}
+{#									<?php#}
+{#										$response = total("total","county_budget_allocation");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+
+{#					<!--excise revenue-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="<?php  $url; ?>excise_revenue.php">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">Excise Revenue</span>#}
+{#									<?php#}
+{#										$response = total_single_year("total","excise_revenue_commodity");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+{##}
+{#						<!--economic_classification_revenue-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="<?php  $url; ?>economic_classification_revenue.php">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">Economic Classification Revenue</span>#}
+{#									<?php#}
+{#										$response = total("total","economic_classification_revenue");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+{##}
+{#						<!--expenditure national government-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="<?php  $url; ?>national_government_expenditure.php">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">National Government Expenditure</span>#}
+{#									<?php#}
+{#										$response = total_single_year("total","national_government_expenditure");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+{##}
+{##}
+{#					<!--expenditure national government-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="<?php  $url; ?>national_government_expenditure_purpose.php">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">National Government Expenditure by Purpose</span>#}
+{#									<?php#}
+{#										$response = total_single_year("health","national_government_expenditure_purpose");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+{##}
+{#					<!--outstanding_debt_international_organization-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="<?php  $url; ?>debt_international_organization.php">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">Debt International Organization</span>#}
+{#									<?php#}
+{#										$response = total("total","excise_revenue_commodity");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+{##}
+{#					<!--outstanding_debt_lending country-->#}
+{#					<div class="col s12 m12 l4">#}
+{#						<a href="<?php  $url; ?>debt_lending_country.php">#}
+{#							<div class="card stats-card">#}
+{#								<div class="card-content">#}
+{#									<span class="card-title">Debt Lending Country</span>#}
+{#									<?php#}
+{#										$response = total("total","excise_revenue_commodity");#}
+{##}
+{#										if($response!=0){#}
+{#											$total = $response[0]['total'];#}
+{#											$year = $response[0]['year'];#}
+{#										}#}
+{#									?>#}
+{#									<span class="stats-counter">#}
+{#										<small>Last Update: <?php echo $year ?></small>#}
+{#										&nbsp#}
+{##}
+{#									</span>#}
+{#								</div>#}
+{#							</div>#}
+{#						</a>#}
+{#                    </div>#}
+
+                </div>
+
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script>
+            var requests = [{year: "county_cppcs", id: "#county_cppcs"}, {year:"county_oscs", id:"#county_oscs"},
+             {year:"county_rvcs", id:"#county_rvcs"}, {year:"cases_handled", id:"#cases_handled"},{year:"convicted_pyos", id:"#convicted_pyos"},
+            {year:"environmental_crimes", id:"#environmental_crimes"}, {year:"cases_hadled_eacc", id:"#cases_hadled_eacc"}, {year:"cases_action_taken", id:"#cases_action_taken"},
+            {year:"convicted_ppas", id:"#convicted_ppas"}, {year:"number_pppo", id:"#number_pppo"}, {year:"offences_cam", id:"#offences_cam"},
+            {year:"persons_rhchs", id:"#persons_rhchs"}, {year:"persons_rhcrt", id:"#persons_rhcrt"}]
+
+            function getYear(obj){
+                var address = ["http://192.168.170.227:8000/getYear", "http://41.89.6.97:8000/getYear"];
+                var arrayLength = address.length;
+                for (var i = 0; i < arrayLength; i++) {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": address[i],
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                            "postman-token": "1c2e1c70-01df-4d94-94d9-3ffcde3ae041"
+                        },
+                        "data": {
+                            "year": obj.year
+                        }
+                    }
+                    {#                                            console.log("Passed", $('#county_revenue').val())#}
+                    $.ajax(settings).done(function (data) {
+                        $(obj.id).text("Last Update: " + data.year.year__max);
+                        {#                                                console.log('debug recent', JSON.stringify(data, null, 4));#}
+                        {#                                              $('#county_revenue').val("data")#}
+                        {#                                                document.getElementById('county_revenue').innerHTML += " "                                              console.log(data);#}
+                    });
+                }
+
+            }
+            requests.map(getYear)
+        </script>
+{#		<?php#}
+{#		if ($error!=null) {#}
+{#		?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php  $error; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

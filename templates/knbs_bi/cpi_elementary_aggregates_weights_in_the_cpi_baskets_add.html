@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Elementary Aggregates Weights in the CPI Baskets</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Elementary Aggregates Weights in the CPI Baskets Input</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Elementary Aggregates Weights in the CPI Baskets Details</span><br>
+								<a href="/elementary_aggregates_weights_in_the_cpi_baskets" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="" class="col s12">
+
+                                    {% csrf_token %}
+
+                                        <div class="row">
+
+
+											<div class="input-field col s12 m6">
+												<input type="text" class="form-control" id="code" name="code" required>
+												<label for="ahero_hectares_cropped ">*Coicop Code</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="form-control" id="description" name="description" required>
+												<label for="ahero_number_of_plots_holders">*Description</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" step="any" class="form-control" id="lower" name="lower" required>
+												<label for="ahero_paddy_yields_tonnes">*Nairobi Lower</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" step="any" class="form-control" id="middle" name="middle" required>
+												<label for="ahero_payments_to_plot_holders_millions">*Nairobi Middle</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" step="any" class="form-control" id="upper" name="upper" required>
+												<label for="all_schemes_gross_value_of_crop_millions">*Nairobi Upper</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" step="any" class="form-control" id="rest" name="rest" required>
+												<label for="all_schemes_hectares_cropped">*Rest of Urban Areas</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" step="any" class="form-control" id="kenya" name="kenya" required>
+												<label for="all_schemes_number_of_plots_holders">*Kenya</label>
+											</div>
+
+
+										</div>
+
+
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" id="addData">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    <script type="text/javascript">
+
+            $("#addData").click(function (e) {
+                e.preventDefault();
+
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/cpi/add_elementary_aggregates_weights_in_the_cpi_baskets",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "code": $('#code').val(),
+                            "description": $('#description').val(),
+                            "lower": $('#lower').val(),
+                            "middle": $('#middle').val(),
+                            "upper": $('#upper').val(),
+                            "rest": $('#rest').val(),
+                            "kenya": $('#kenya').val(),
+                        }
+                    }
+                    $('#code').val('');
+                    $('#description').val('');
+                    $('#lower').val('');
+                    $('#middle').val('');
+                    $('#upper').val('');
+                    $('#rest').val('');
+                    $('#kenya').val('');
+
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Record Added");
+                        console.log(response);
+                    });
+
+
+            })
+
+        </script>
+
+
+    </body>
+</html>

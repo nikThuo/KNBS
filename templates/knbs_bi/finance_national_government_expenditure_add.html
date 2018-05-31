@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>National Government Expenditure</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">National Government Expenditure</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">National Government Expenditure Details</span><br>
+								<a href="/national_government_expenditure" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="POST" class="col s12">
+                                    {% csrf_token %}
+                                        <div class="row">
+
+
+
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="non_financial" name="non_financial" required/>
+												<label for="non_financial">*Acquisition Non Financial Assets</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="financial" name="financial"  required/>
+												<label for="financial ">*Acquisition Financial Assets</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="loans" name="loans"  required/>
+												<label for="loans">*Loan Repayment</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="compensation" name="compensation"  required/>
+												<label for="compensation">*Compensation Employees</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="goods" name="goods"  required/>
+												<label for="goods">*Goods and Services</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="subsidies" name="subsidies"  required/>
+												<label for="subsidies">*Subsidies</label>
+											</div>
+
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="interest" name="interest"  required/>
+												<label for="interest">*Interest</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="grants" name="grants"  required/>
+												<label for="grants">*Grants</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="expenses" name="expenses"  required/>
+												<label for="expenses">*Other Expenses</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="benefits" name="benefits"  required/>
+												<label for="benefits">*Social Benefits</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="capital" name="capital"  required/>
+												<label for="capital">*Capital Grants</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="total" name="total"  required/>
+												<label for="total">*Total</label>
+											</div>
+
+                                            <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+
+
+
+
+										</div>
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" id="addData">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>iv>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+		<script type="text/javascript">
+		/*
+			$('input.validate').keyup(function(event) {
+
+			  // skip for arrow keys
+			  if(event.which >= 37 && event.which <= 40) return;
+
+			  // format number
+			  $(this).val(function(index, value) {
+				return value
+				.replace(/\D/g, "")
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+				;
+			  });
+			});
+			*/
+		</script>
+{#		#}
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000) #}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+{#        #}
+    <script type="text/javascript">
+
+            $("#addData").click(function (e) {
+                e.preventDefault();
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/finance/add_national_expenditure",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "non_financial": $('#non_financial').val(),
+                            "financial": $('#financial').val(),
+                            "loans": $('#loans').val(),
+                            "compensation": $('#compensation').val(),
+                            "goods": $('#goods').val(),
+                            "subsidies": $('#subsidies').val(),
+                            "interest": $('#interest').val(),
+                            "grants": $('#grants').val(),
+                            "expenses": $('#expenses').val(),
+                            "benefits": $('#benefits').val(),
+                            "capital": $('#capital').val(),
+                            "total": $('#total').val(),
+                            "year": $('#year').val()
+
+                        }
+                    }
+                    $('#non_financial').val('');
+                    $('#financial').val('');
+                    $('#loans').val('');
+                    $('#compensation').val('');
+                    $('#goods').val('');
+                    $('#subsidies').val('');
+                    $('#interest').val('');
+                    $('#grants').val('');
+                    $('#expenses').val('');
+                    $('#benefits').val('');
+                    $('#capital').val('');
+                    $('#total').val('');
+                    $('#year').val('');
+
+                    //console.log("Adding", $('#county_id').val(), $('#sub_county').val(), $('#divisions').val(), $('#locations').val(), $('#sub_locations').val());
+
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Record Added");
+                        console.log(response);
+                    });
+
+
+            })
+
+        </script>
+
+    </body>
+</html>

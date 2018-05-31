@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>National Government Expenditure Purpose</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+
+        {% load staticfiles %}
+
+         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">National Government Expenditure Purpose</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">National Government Expenditure Purpose Data</span><br>
+								<a href="/national_government_expenditure_purpose" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+
+                                    <form action="" method="POST" class="col s12">
+                                        <div class="row">
+
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="year" name="year"  value="" readonly/>
+												<label for="year">*Year</label>
+											</div>
+
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="general" name="general" value="" readonly/>
+												<label for="general">*General Public Services</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="public" name="public"  value="" readonly/>
+												<label for="public ">*Public Debt Transfers</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="transfers" name="transfers"  value="" readonly/>
+												<label for="transfers">*Transfers</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="defense" name="defense"  value="" readonly/>
+												<label for="defense">*Defense</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="orders" name="orders"  value="" readonly/>
+												<label for="orders">*Order Safety</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="economic" name="economic"  value="" readonly/>
+												<label for="economic">*Economic Commercial Labour</label>
+											</div>
+
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="agriculture" name="agriculture"  value="" readonly/>
+												<label for="agriculture">*Agriculture</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="fuel" name="fuel"  value="" readonly/>
+												<label for="fuel">*Fuel Energy</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="mining" name="mining"  value="" readonly/>
+												<label for="mining">*Mining, Manufacturing and Construction</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="transport" name="transport"  value="" readonly/>
+												<label for="transport">*Transport</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="communication" name="communication"  value="" readonly/>
+												<label for="communication">*Communication</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="other" name="other"  value="" readonly/>
+												<label for="other">*Other Industries</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="environmental" name="environmental"  value="" readonly/>
+												<label for="environmental">*Environmental Protection</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="housing" name="housing"  value="" readonly/>
+												<label for="housing">*Housing Community Amenities</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="health" name="health"  value="" readonly/>
+												<label for="health">*Health</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="recreation" name="recreation"  value="" readonly/>
+												<label for="recreation">*Recreation, Culture and Religion</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="education" name="education"  value="" readonly/>
+												<label for="education">*Education</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="social" name="social"  value="" readonly/>
+												<label for="social">*Social Protection</label>
+											</div>
+
+
+
+
+										</div>
+
+										<div class="row">
+											<div class="col s4">
+												<a href="/national_government_expenditure_purpose" class="btn maroon waves-effect waves-light " >
+                                                    <i class="material-icons right">highlight_off</i>
+                                                    Close
+                                                </a>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+        <script>
+
+            $ (function (){
+                $('#year').val(localStorage.getItem("year"));
+                $('#general').val(localStorage.getItem("general"));
+                $('#public').val(localStorage.getItem("public"));
+                $('#transfers').val(localStorage.getItem("transfers"));
+                $('#defense').val(localStorage.getItem("defense"));
+                $('#orders').val(localStorage.getItem("orders"));
+                $('#economic').val(localStorage.getItem("economic"));
+                $('#agriculture').val(localStorage.getItem("agriculture"));
+                $('#fuel').val(localStorage.getItem("fuel"));
+                $('#mining').val(localStorage.getItem("mining"));
+                $('#transport').val(localStorage.getItem("transport"));
+                $('#communication').val(localStorage.getItem("communication"));
+                $('#other').val(localStorage.getItem("other"));
+                $('#environmental').val(localStorage.getItem("environmental"));
+                $('#housing').val(localStorage.getItem("housing"));
+                $('#health').val(localStorage.getItem("health"));
+                $('#recreation').val(localStorage.getItem("recreation"));
+                $('#education').val(localStorage.getItem("education"));
+                $('#social').val(localStorage.getItem("social"));
+
+            });
+
+        </script>
+
+		<script type="text/javascript">
+		/*
+			$('input.validate').keyup(function(event) {
+
+			  // skip for arrow keys
+			  if(event.which >= 37 && event.which <= 40) return;
+
+			  // format number
+			  $(this).val(function(index, value) {
+				return value
+				.replace(/\D/g, "")
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+				;
+			  });
+			});
+			*/
+		</script>
+
+{#		<?php if(isset($msg)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $msg; ?>", 4000) #}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

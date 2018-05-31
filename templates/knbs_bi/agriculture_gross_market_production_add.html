@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Gross Market Production</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Gross Market Production Input</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Gross Market Production Details</span><br>
+								<a href="/gross_market_production" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="POST" class="col s12">
+
+                                    {% csrf_token %}
+
+                                        <div class="row">
+                                             <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											 </div>
+
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="cattle" name="cattle"  required>
+												<label for="ahero_gross_value_of_crop_millions">*Cattle and Calves for Slaughter</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="sugarcane" name="sugarcane" required>
+												<label for="ahero_hectares_cropped ">*Sugarcane</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="vegetables" name="vegetables" required>
+												<label for="ahero_number_of_plots_holders">*Vegetables</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="cutflowers" name="cutflowers" required>
+												<label for="ahero_paddy_yields_tonnes">*Cutflowers</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="tea" name="tea" required>
+												<label for="ahero_payments_to_plot_holders_millions">*Tea</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="fruits" name="fruits" required>
+												<label for="all_schemes_gross_value_of_crop_millions">*Fruits</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="poultry" name="poultry" required>
+												<label for="all_schemes_hectares_cropped">*Poultry and Eggs</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="wheat" name="wheat" required>
+												<label for="all_schemes_number_of_plots_holders">*Wheat</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="sheep" name="sheep" required>
+												<label for="all_schemes_paddy_yields_tonnes">*Sheep, Goats and Lambs for Slaughter</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="maize" name="maize" required>
+												<label for="all_schemes_payments_to_plot_holders_millions">*Maize</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="coffee" name="coffee" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Coffee</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="barley" name="barley" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Barley</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="dairy" name="dairy" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Dairy Products</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="cotton" name="cotton" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Cotton</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="hides" name="hides" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Hides and Skins</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="cereals" name="cereals" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Other Cereals</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="crops" name="crops" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Other Temporary Crops</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="pigs" name="pigs" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Pigs for Slaughter</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="wool" name="wool" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Wool</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="potatoes" name="potatoes" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Potatoes</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="pulses" name="pulses" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Pulses</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="pyrethrum" name="pyrethrum" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Pyrethrum</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="rice" name="rice" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Rice Paddy</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="tobacco" name="tobacco" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Tobacco</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="total" name="total" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Total</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="grand_total" name="grand_total" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Grand Total</label>
+											</div>
+
+										</div>
+
+
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" id="addData">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    <script type="text/javascript">
+
+            $("#addData").click(function (e) {
+                e.preventDefault();
+
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/agriculture/add_market_production",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "year": $('#year').val(),
+                            "cattle": $('#cattle').val(),
+                            "sugarcane": $('#sugarcane').val(),
+                            "vegetables": $('#vegetables').val(),
+                            "cutflowers": $('#cutflowers').val(),
+                            "tea": $('#tea').val(),
+                            "fruits": $('#fruits').val(),
+                            "poultry": $('#poultry').val(),
+                            "wheat": $('#wheat').val(),
+                            "sheep": $('#sheep').val(),
+                            "maize": $('#maize').val(),
+                            "coffee": $('#coffee').val(),
+                            "barley": $('#barley').val(),
+                            "dairy": $('#dairy').val(),
+                            "cotton": $('#cotton').val(),
+                            "hides": $('#hides').val(),
+                            "cereals": $('#cereals').val(),
+                            "crops": $('#crops').val(),
+                            "pigs": $('#pigs').val(),
+                            "wool": $('#wool').val(),
+                            "potatoes": $('#potatoes').val(),
+                            "pulses": $('#pulses').val(),
+                            "pyrethrum": $('#pyrethrum').val(),
+                            "rice": $('#rice').val(),
+                            "tobacco": $('#tobacco').val(),
+                            "total_crops": $('#total').val(),
+                            "grand_total": $('#grand_total').val()
+                        }
+                    }
+                    $('#year').val('');
+                    $('#cattle').val('');
+                    $('#sugarcane').val('');
+                    $('#vegetables').val('');
+                    $('#cutflowers').val('');
+                    $('#tea').val('');
+                    $('#fruits').val('');
+                    $('#poultry').val('');
+                    $('#wheat').val('');
+                    $('#sheep').val('');
+                    $('#maize').val('');
+                    $('#coffee').val('');
+                    $('#barley').val('');
+                    $('#dairy').val('');
+                    $('#cotton').val('');
+                    $('#hides').val('');
+                    $('#cereals').val('');
+                    $('#crops').val('');
+                    $('#pigs').val('');
+                    $('#wool').val('');
+                    $('#potatoes').val('');
+                    $('#pulses').val('');
+                    $('#pyrethrum').val('');
+                    $('#rice').val('');
+                    $('#tobacco').val('');
+                    $('#total').val('');
+                    $('#grand_total').val('');
+
+                    //console.log("Adding", $('#county_id').val(), $('#sub_county').val(), $('#divisions').val(), $('#locations').val(), $('#sub_locations').val());
+
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Record Added");
+                        console.log(response);
+                    });
+
+
+            })
+
+        </script>
+
+
+    </body>
+</html>

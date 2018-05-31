@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <!-- Title -->
+        <title>County Expenditure</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+        
+        
+        {% load staticfiles %}
+        
+         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+                                    
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">County Expenditure</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">County Expenditure Data</span><br>
+								<a href="/county_expenditure" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back 									
+								</a>
+                                <div class="row">
+
+{#										<?php #}
+{#								#}
+{#									$view = mysqli_query($con,"SELECT * FROM irrigation_schemes #}
+{#																WHERE irrigation_schemes_id ='$id'");#}
+{#									#}
+{#									while ($rowView = mysqli_fetch_assoc($view)){#}
+{#									#}
+{#										$ahero_gross_value_of_crop_millions  = $rowView['ahero_gross_value_of_crop_millions'];#}
+{#										$ahero_hectares_cropped = $rowView['ahero_hectares_cropped'];#}
+{#										$ahero_number_of_plots_holders= $rowView['ahero_number_of_plots_holders'];#}
+{#										$ahero_paddy_yields_tonnes = $rowView['ahero_paddy_yields_tonnes'];#}
+{#										$ahero_payments_to_plot_holders_millions = $rowView['ahero_payments_to_plot_holders_millions'];#}
+{#										$all_schemes_gross_value_of_crop_millions = $rowView['all_schemes_gross_value_of_crop_millions'];#}
+{#										$all_schemes_hectares_cropped = $rowView['all_schemes_hectares_cropped'];#}
+{#										$all_schemes_number_of_plots_holders = $rowView['all_schemes_number_of_plots_holders'];#}
+{#										$all_schemes_paddy_yields_tonnes = $rowView['all_schemes_paddy_yields_tonnes'];#}
+{#										$all_schemes_payments_to_plot_holders_millions = $rowView['all_schemes_payments_to_plot_holders_millions'];#}
+{#										$bunyala_gross_value_of_crop_millions = $rowView['bunyala_gross_value_of_crop_millions'];#}
+{#										$bunyala_hectares_cropped = $rowView['bunyala_hectares_cropped'];;#}
+{#										$bunyala_number_of_plots_holders = $rowView['bunyala_number_of_plots_holders'];#}
+{#										$bunyala_paddy_yields_tonnes = $rowView['bunyala_paddy_yields_tonnes'];#}
+{#										$bunyala_payments_to_plot_holders_millions = $rowView['bunyala_payments_to_plot_holders_millions'];#}
+{#										$mwea_gross_value_of_crop_millions = $rowView['mwea_gross_value_of_crop_millions'];#}
+{#										$mwea_number_of_plots_holders = $rowView['mwea_number_of_plots_holders'];#}
+{#										$mwea_paddy_yields_tonnes = $rowView['mwea_paddy_yields_tonnes'];#}
+{#										$mwea_payments_to_plot_holders_million = $rowView['mwea_payments_to_plot_holders_million'];#}
+{#										$perkerra_gross_value_of_crop_millions = $rowView['perkerra_gross_value_of_crop_millions'];#}
+{#										$perkerra_hectares_cropped = $rowView['perkerra_hectares_cropped'];#}
+{#										$pekerra_number_of_plots_holders = $rowView['perkerra_number_of_plots_holders'];#}
+{#										$perkerra_payments_to_plot_holders_millions = $rowView['perkerra_payments_to_plot_holders_millions'];#}
+{#										$perkerra_seed_maize_tonnes = $rowView['perkerra_seed_maize_tonnes'];#}
+{#										$west_kano_gross_value_of_crop_millions = $rowView['west_kano_gross_value_of_crop_millions'];#}
+{#										$west_kano_hectares_cropped = $rowView['west_kano_hectares_cropped'];#}
+{#										$west_kano_number_of_plots_holders = $rowView['west_kano_number_of_plots_holders'];#}
+{#										$west_kano_paddy_yields_tonnes = $rowView['west_kano_paddy_yields_tonnes'];#}
+{#										$west_kano_payments_to_plot_holders_millions = $rowView['west_kano_payments_to_plot_holders_millions'];#}
+{#										$year = $rowView['year'];#}
+{##}
+{#								}#}
+{#								#}
+{#								?>#}
+                                    <form action="" method="POST" class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="county" name="county"  value="" readonly/>
+                                                <label for="year">*County</label>
+                                            </div> 
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="employees" name="employees"  value="" readonly/>
+												<label for="ahero_gross_value_of_crop_millions">*Compensation Employees</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="services" name="services"  value="" readonly/>
+												<label for="ahero_hectares_cropped ">*Goods and Services</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="subsidies" name="subsidies"  value="" readonly/>
+												<label for="ahero_number_of_plots_holders">*Subsidies</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="international" name="international"  value="" readonly/>
+												<label for="ahero_paddy_yields_tonnes">*Grants International Organisation</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="government" name="government"  value="" readonly/>
+												<label for="ahero_payments_to_plot_holders_millions">*Grants Goverment Units</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="other_grants" name="other_grants"  value="" readonly/>
+												<label for="all_schemes_gross_value_of_crop_millions">*Other Grants</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="capital_grants" name="capital_grants"  value="" readonly/>
+												<label for="all_schemes_hectares_cropped">*Capital Grants</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="benefits" name="benefits"  value="" readonly/>
+												<label for="all_schemes_number_of_plots_holders">*Social Benefits</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="expenses" name="expenses"  value="" readonly/>
+												<label for="all_schemes_paddy_yields_tonnes">*Other Expenses</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="structures" name="structures"  value="" readonly/>
+												<label for="all_schemes_payments_to_plot_holders_millions">*Building Structures </label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="equipment" name="equipment"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Plant Machinery Equipment</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="inventory" name="inventory"  value="" readonly/>
+												<label for="bunyala_hectares_cropped">*Inventories</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="assets" name="assets"  value="" readonly/>
+												<label for="bunyala_number_of_plots_holders">*Other Assets</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="financial_assets" name="financial_assets"  value="" readonly/>
+												<label for="bunyala_paddy_yields_tonnes">*Acquisition Financial Assets</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="debt" name="debt"  value="" readonly/>
+												<label for="bunyala_payments_to_plot_holders_millions">*Interest Debt</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="total" name="total"  value="" readonly/>
+												<label for="mwea_gross_value_of_crop_millions">*Total</label>
+											</div>
+											<div class="input-field col s12 m6">											
+												<input type="email" class="form-control" id="year" name="year"  value="" readonly/>
+												<label for="mwea_number_of_plots_holders">*Year</label>
+											</div>
+
+										</div>									
+										
+										<div class="row">
+											<div class="col s4">
+												<a href="/county_expenditure" class="btn maroon waves-effect waves-light " >
+                                                    <i class="material-icons right">highlight_off</i>
+                                                    Close
+                                                </a>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>	
+       
+        <!-- Javascripts -->	
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+        <script>
+
+            $ (function (){
+                $('#county').val(localStorage.getItem("county"));
+                $('#employees').val(localStorage.getItem("employees"));
+                $('#services').val(localStorage.getItem("services"));
+                $('#subsidies').val(localStorage.getItem("subsidies"));
+                $('#international').val(localStorage.getItem("international"));
+                $('#government').val(localStorage.getItem("government"));
+                $('#other_grants').val(localStorage.getItem("other_grants"));
+                $('#capital_grants').val(localStorage.getItem("capital_grants"));
+                $('#benefits').val(localStorage.getItem("benefits"));
+                $('#expenses').val(localStorage.getItem("expense"));
+                $('#structures').val(localStorage.getItem("structures"));
+                $('#equipment').val(localStorage.getItem("equipment"));
+                $('#inventory').val(localStorage.getItem("inventory"));
+                $('#assets').val(localStorage.getItem("assets"));
+                $('#financial_assets').val(localStorage.getItem("financial_assets"));
+                $('#debt').val(localStorage.getItem("debt"));
+                $('#total').val(localStorage.getItem("total"));
+                $('#year').val(localStorage.getItem("year"));
+            });
+
+        </script>
+		
+		<script type="text/javascript">
+		/*
+			$('input.validate').keyup(function(event) {
+
+			  // skip for arrow keys
+			  if(event.which >= 37 && event.which <= 40) return;
+
+			  // format number
+			  $(this).val(function(index, value) {
+				return value
+				.replace(/\D/g, "")
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+				;
+			  });
+			}); 
+			*/
+		</script>
+		
+{#		<?php if(isset($msg)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $msg; ?>", 4000) #}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+        
+    </body>
+</html>

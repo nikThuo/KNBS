@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Irrigation Schemes Input</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Irrigation Schemes Input</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Irrigation Schemes Details</span><br>
+								<a href="/irrigation_schemes" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="" class="col s12">
+
+                                        {% csrf_token %}
+
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="ahero_gross" name="ahero_gross" required>
+                                                <label for="year">*Ahero Gross Value of Crop Millions</label>
+                                            </div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="ahero_hectares" name="ahero_hectares" required>
+												<label for="ahero_gross_value_of_crop_millions">*Ahero Hectares Cropped</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="ahero_no" name="ahero_no" required>
+												<label for="ahero_hectares_cropped ">*Ahero Number of Plot Holders</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="ahero_paddy" name="ahero_paddy" required>
+												<label for="ahero_number_of_plots_holders">*Ahero Paddy Yields Tonnes</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="ahero_pay" name="ahero_pay" required>
+												<label for="ahero_paddy_yields_tonnes">*Ahero Payment to Plot Holders Millions</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="scheme_gross" name="scheme_gross" required>
+												<label for="ahero_payments_to_plot_holders_millions">*All Scheme Gross Value of Crop Millions</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="scheme_hectares" name="scheme_hectares" required>
+												<label for="all_schemes_gross_value_of_crop_millions">*All Scheme Hectares Cropped</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="scheme_no" name="scheme_no" required>
+												<label for="all_schemes_hectares_cropped">*All Schemes Number of Plot Holders</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="scheme_paddy" name="scheme_paddy" required>
+												<label for="all_schemes_number_of_plots_holders">*All Schemes Paddy Yield Tonnes</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="scheme_pay" name="scheme_pay" required>
+												<label for="all_schemes_paddy_yields_tonnes">*All Schemes Payment to Plot Holders Millions</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="bunyala_gross" name="bunyala_gross" required>
+												<label for="all_schemes_payments_to_plot_holders_millions">*Bunyala Gross Value of Crop Millions</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="bunyala_hectares" name="bunyala_hectares" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Bunyala Hectares Cropped</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="bunyala_no" name="bunyala_no" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Bunyala Number of Plot Holders</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="bunyala_paddy" name="bunyala_paddy" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Bunyala Paddy Yield Tonnes</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="bunyala_pay" name="bunyala_pay" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Bunyala Payment to Plot Holders Millions</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="mwea_gross" name="mwea_gross" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Mwea Gross Value of Crop Millions</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="mwea_hectares" name="mwea_hectares"  required>
+												<label for="bunyala_gross_value_of_crop_millions">*Mwea Hectares Cropped</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="mwea_no" name="mwea_no" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Mwea Number of Plot Holders</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="mwea_paddy" name="mwea_paddy"required>
+												<label for="bunyala_gross_value_of_crop_millions">*Mwea Paddy Yield Tonnes</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="mwea_pay" name="mwea_pay" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Mwea Payment to Plot Holders Millions</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="perkerra_gross" name="perkerra_gross" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Perkerra Gross Value of Crop Millions</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="perkerra_hectares" name="perkerra_hectares" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Perkerra Hectares Cropped</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="perkerra_no" name="perkerra_no" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Perkerra Number of Plot Holders</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="perkerra_pay" name="perkerra_pay" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Perkerra Payment to Plot Holders Millions</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="perkerra_seed" name="perkerra_seed" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Perkerra Seed Maize Tonnes</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="kano_gross" name="kano_gross" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Kano Gross Value of Crop Millions</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="kano_hectares" name="kano_hectares" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Kano Hectares Cropped</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="kano_no" name="kano_no" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Kano Number of Plot Holders</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="kano_paddy" name="kano_paddy" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Kano Paddy Yield Tonnes</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="form-control" id="kano_pay" name="kano_pay" required>
+												<label for="bunyala_gross_value_of_crop_millions">*Kano Payment to Plot Holders Millions</label>
+											</div>
+
+                                             <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											 </div>
+
+										</div>
+
+
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " id="updateData" name="submit">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+        <script>
+
+            $ (function (){
+                $('#ahero_gross').val(localStorage.getItem("ahero_gross"));
+                $('#ahero_hectares').val(localStorage.getItem("ahero_hectares"));
+                $('#ahero_no').val(localStorage.getItem("ahero_no"));
+                $('#ahero_paddy').val(localStorage.getItem("ahero_paddy"));
+                $('#ahero_pay').val(localStorage.getItem("ahero_pay"));
+                $('#scheme_gross').val(localStorage.getItem("scheme_gross"));
+                $('#scheme_hectares').val(localStorage.getItem("scheme_hectares"));
+                $('#scheme_no').val(localStorage.getItem("scheme_no"));
+                $('#scheme_paddy').val(localStorage.getItem("scheme_paddy"));
+                $('#scheme_pay').val(localStorage.getItem("scheme_pay"));
+                $('#bunyala_gross').val(localStorage.getItem("bunyala_gross"));
+                $('#bunyala_hectares').val(localStorage.getItem("bunyala_hectares"));
+                $('#bunyala_no').val(localStorage.getItem("bunyala_no"));
+                $('#bunyala_paddy').val(localStorage.getItem("bunyala_paddy"));
+                $('#bunyala_pay').val(localStorage.getItem("bunyala_pay"));
+                $('#mwea_gross').val(localStorage.getItem("mwea_gross"));
+                $('#mwea_hectares').val(localStorage.getItem("mwea_hectares"));
+                $('#mwea_no').val(localStorage.getItem("mwea_no"));
+                $('#mwea_paddy').val(localStorage.getItem("mwea_paddy"));
+                $('#mwea_pay').val(localStorage.getItem("mwea_pay"));
+                $('#perkerra_gross').val(localStorage.getItem("perkerra_gross"));
+                $('#perkerra_hectares').val(localStorage.getItem("perkerra_hectares"));
+                $('#perkerra_no').val(localStorage.getItem("perkerra_no"));
+                $('#perkerra_pay').val(localStorage.getItem("perkerra_pay"));
+                $('#perkerra_seed').val(localStorage.getItem("perkerra_seed"));
+                $('#kano_gross').val(localStorage.getItem("kano_gross"));
+                $('#kano_hectares').val(localStorage.getItem("kano_hectares"));
+                $('#kano_no').val(localStorage.getItem("kano_no"));
+                $('#kano_paddy').val(localStorage.getItem("kano_paddy"));
+                $('#kano_pay').val(localStorage.getItem("kano_pay"));
+                $('select#year').val(localStorage.getItem("year"));$('select#year').material_select();
+            });
+{#            console.log($('#year'),$('#cattle'),$('#dips'),$('#fungicides'),$('#herbicides'),$('#insecticides'), $('#feeds'), $('#drugs'),#}
+{#            $('#pig_feed'), $('#plant'), $('#poultry'), $('#vaccines'));#}
+
+            $("#updateData").click(function (e) {
+                e.preventDefault();
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/agriculture/edit_irrigation_schemes",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "ahero_gross": $('#ahero_gross').val(),
+                            "ahero_hectares": $('#ahero_hectares').val(),
+                            "ahero_plots": $('#ahero_no').val(),
+                            "ahero_paddy": $('#ahero_paddy').val(),
+                            "ahero_pay": $('#ahero_pay').val(),
+                            "all_gross": $('#scheme_gross').val(),
+                            "all_hectares": $('#scheme_hectares').val(),
+                            "all_plots": $('#scheme_no').val(),
+                            "all_paddy": $('#scheme_paddy').val(),
+                            "all_pay": $('#scheme_pay').val(),
+                            "bunyala_gross": $('#bunyala_gross').val(),
+                            "bunyala_hectares": $('#bunyala_hectares').val(),
+                            "bunyala_plots": $('#bunyala_no').val(),
+                            "bunyala_paddy": $('#bunyala_paddy').val(),
+                            "bunyala_pay": $('#bunyala_pay').val(),
+                            "mwea_gross": $('#mwea_gross').val(),
+                            "mwea_hectares": $('#mwea_hectares').val(),
+                            "mwea_plots": $('#mwea_no').val(),
+                            "mwea_paddy": $('#mwea_paddy').val(),
+                            "mwea_pay": $('#mwea_pay').val(),
+                            "perkerra_gross": $('#perkerra_gross').val(),
+                            "perkerra_hectares": $('#perkerra_hectares').val(),
+                            "perkerra_plots": $('#perkerra_no').val(),
+                            "perkerra_pay": $('#perkerra_pay').val(),
+                            "perkerra_seed": $('#perkerra_seed').val(),
+                            "west_gross": $('#kano_gross').val(),
+                            "west_hectares": $('#kano_hectares').val(),
+                            "west_plots": $('#kano_no').val(),
+                            "west_paddy": $('#kano_paddy').val(),
+                            "west_pay": $('#kano_pay').val(),
+                            "year": $('#year').val(),
+                            "irrigation": localStorage.getItem("id")
+                        }
+                    }
+                    $('#ahero_gross').val('');
+                    $('#ahero_hectares').val('');
+                    $('#ahero_no').val('');
+                    $('#ahero_paddy').val('');
+                    $('#ahero_pay').val('');
+                    $('#scheme_gross').val('');
+                    $('#scheme_hectares').val('');
+                    $('#scheme_no').val('');
+                    $('#scheme_paddy').val('');
+                    $('#scheme_pay').val('');
+                    $('#bunyala_gross').val('');
+                    $('#bunyala_hectares').val('');
+                    $('#bunyala_no').val('');
+                    $('#bunyala_paddy').val('');
+                    $('#bunyala_pay').val('');
+                    $('#mwea_gross').val('');
+                    $('#mwea_hectares').val('');
+                    $('#mwea_no').val('');
+                    $('#mwea_paddy').val('');
+                    $('#mwea_pay').val('');
+                    $('#perkerra_gross').val('');
+                    $('#perkerra_hectares').val('');
+                    $('#perkerra_no').val('');
+                    $('#perkerra_pay').val('');
+                    $('#perkerra_seed').val('');
+                    $('#kano_gross').val('');
+                    $('#kano_hectares').val('');
+                    $('#kano_no').val('');
+                    $('#kano_paddy').val('');
+                    $('#kano_pay').val('');
+                    $('#year').val('');
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Editted Successfully");
+                        console.log(response);
+                    });
+
+            })
+
+        </script>
+
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

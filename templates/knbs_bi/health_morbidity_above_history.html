@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Morbidity Above 5Yrs | History</title>
+		<meta charset="utf-8">
+		<meta name="description" content="KNBS dashboard" />
+		<meta name="keywords" content="web,knbs" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+
+        {% load staticfiles %}
+
+        <link rel="shortcut icon" href="{% static 'knbs_bi/assets/images/icon.png' %}">
+
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">County Outpatient Morbidity for Patients Above 5 Years of Age</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Morbidity for Patients Above 5 Years of Age Details</span>
+{#								<?php#}
+{##}
+{#									$query_immune = "SELECT m.*,county_name,disease_name FROM health_county_outpatient_morbidity_below_five m#}
+{#														 JOIN counties c ON m.county_id=c.county_id#}
+{#														 JOIN health_disease_list d ON m.disease_id=d.disease_id#}
+{#															ORDER BY morbidity_below_id ASC";#}
+{#									$info = mysqli_query($con,$query_immune);#}
+{#									// Return the number of rows in result set#}
+{#									$rowcount=mysqli_num_rows($info);#}
+{#									if($rowcount>0){#}
+{#								?>#}
+{#								<div class="row">#}
+{#									<a href="/morbidity_above_add" class="btn maroon waves-effect waves-light right" >Add#}
+{#										<i class="material-icons right">add</i>#}
+{#									</a>#}
+{#								</div>#}
+{#								</br></br>#}
+{#								<div class="row">#}
+{#									 <form id="search" action="" method="POST" class="col s12">#}
+{#									  <!-- Dropdown Trigger -->#}
+{#									  <a class="btn maroon waves-effect waves-light dropdown-button" href="#" data-stopPropagation="false" data-constrainWidth="false" data-activates="dropdown_county">&nbsp;Counties </a>#}
+{##}
+{#									  <!-- Dropdown Structure -->#}
+{#									  <ul id='dropdown_county' class='dropdown-content'>#}
+{#											<li><a href="#" class="small" data-value="county" tabIndex="-1">#}
+{#												<input  type="checkbox" id="county_all" name="county_all" />#}
+{#												<label for="county_all">All</label></a>#}
+{#											</li>#}
+{#										<?php#}
+{#											$selectCounty = mysqli_query($con,"SELECT * FROM counties ORDER BY county_name ASC ");#}
+{#											while($row = mysqli_fetch_assoc($selectCounty)){#}
+{#												$county_id = $row['county_id'];#}
+{#										?>#}
+{#											<li><a href="#" class="small" data-value="<?php echo $county_id; ?>" tabIndex="-1">#}
+{#												<input  type="checkbox" id="<?php echo $county_id; ?>" value="<?php echo $county_id; ?>" name="county[]" />#}
+{#												<label for="<?php echo $county_id; ?>"><?php echo $row['county_name'];?></label></a>#}
+{#											</li>#}
+{#										<?php#}
+{#											}#}
+{#										?>#}
+{#									  </ul>#}
+{##}
+{#									<!-- Dropdown Trigger -->#}
+{#									  <a class="btn maroon waves-effect waves-light dropdown-button" href="#" data-stopPropagation="false" data-constrainWidth="false" data-activates="dropdown_disease">&nbsp;Diseases </a>#}
+{##}
+{#									  <!-- Dropdown Structure -->#}
+{#									  <ul id='dropdown_disease' class='dropdown-content'>#}
+{#											<li><a href="#" class="small" data-value="disease" tabIndex="-1">#}
+{#												<input  type="checkbox" id="disease_all" name="disease_all" />#}
+{#												<label for="disease_all">All</label></a>#}
+{#											</li>#}
+{#										<?php#}
+{#											$selectCounty = mysqli_query($con,"SELECT * FROM health_disease_list ");#}
+{#											while($row = mysqli_fetch_assoc($selectCounty)){#}
+{#												$disease_id = $row['disease_id'];#}
+{#										?>#}
+{#											<li><a href="#" class="small" data-value="<?php echo $disease_id; ?>" tabIndex="-1">#}
+{#												<input type="checkbox" id="<?php echo $disease_id;  ?>" value="<?php echo $disease_id;  ?>" name="diseases[]"/>#}
+{#												<label for="<?php echo $disease_id; ?>"><?php echo $row['disease_name'];?></label></a>#}
+{#											</li>#}
+{#										<?php#}
+{#											}#}
+{#										?>#}
+{#									  </ul>#}
+{##}
+{#									  <!-- Dropdown Trigger -->#}
+{#									  <a class="btn maroon waves-effect waves-light dropdown-button" href="#" data-stopPropagation="false" data-constrainWidth="false" data-activates="dropdown_year">&nbsp;Year </a>#}
+{##}
+{#									  <!-- Dropdown Structure -->#}
+{#									  <ul id='dropdown_year' class='dropdown-content'>#}
+{#										<?php#}
+{#											$selectCounty = mysqli_query($con,"SELECT DISTINCT year FROM health_county_outpatient_morbidity_above_five ORDER BY year ASC ");#}
+{#											while($row = mysqli_fetch_assoc($selectCounty)){#}
+{#												$year = $row['year'];#}
+{#										?>#}
+{#											<li><a href="#" class="small" data-value="<?php echo $year; ?>" tabIndex="-1">#}
+{#												<input  type="checkbox" id="<?php echo $year; ?>" value="<?php echo $year; ?>" name="year[]" />#}
+{#												<label for="<?php echo $year; ?>"><?php echo $year;?></label></a>#}
+{#											</li>#}
+{#										<?php#}
+{#											}#}
+{#										?>#}
+{#									  </ul>#}
+{#									</div>#}
+{#										<div class="row ">#}
+{#											<div class="col s12 l4 ">#}
+{#												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" onclick="Materialize.toast('Searching ', 4000)">Search#}
+{#													<i class="material-icons right">send</i>#}
+{#												</button>#}
+{#											</div>#}
+{#										</div>#}
+{#									</form>#}
+
+									<div id="table_data">
+									{% if records %}
+
+                                                    <a href="/morbidity_above_add" class="btn maroon waves-effect waves-light " >Add
+                                                        <i class="material-icons right">add</i>
+                                                    </a>
+
+													<table id="example" class="display responsive-table datatable-example">
+														<thead>
+															<tr>
+																<th></th>
+																<th>County</th>
+																<th>Disease</th>
+																<th>Data</th>
+																<th>Year</th>
+																<th>Edit </th>
+															</tr>
+														</thead>
+														<tbody>
+                                                    {% for record in records %}
+
+													<tr>
+														<td></td>
+														<td>{{ record.county }}</td>
+                                                        <td >{{ record.disease }}</td>
+                                                        <td >{{ record.data }}</td>
+                                                        <td >{{ record.year }}</td>
+                                                        <td ><button class="waves-effect waves-light btn orange"
+                                                        onclick="load_above({{ record.morb_id }}, '{{ record.county }}', '{{ record.disease }}', {{ record.data }}, {{ record.year }})"> Edit </button></td>
+													</tr>
+
+                                                    {% endfor %}
+
+													</tbody>
+												</table>
+
+									</div>
+
+								{% else %}
+											<p> You currently have no data</p>
+								{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+
+        <script type="text/javascript">
+
+            function load_above(id, county, disease, data, year){
+                localStorage.clear();
+                localStorage.setItem("id", id);
+                localStorage.setItem("county", county);
+                localStorage.setItem("disease", disease);
+                localStorage.setItem("data", data);
+                localStorage.setItem("year", year);
+                window.location.replace("/morbidity_above_edit");
+
+            }
+        </script>
+
+		<script type='text/javascript'>
+			/* attach a submit handler to the form */
+			$("#search").submit(function(event) {
+
+			  /* stop form from submitting normally */
+			  event.preventDefault();
+
+			  /* get the action attribute from the <form action=""> element */
+			  var $form = $( this ),
+				  //url = $form.attr( 'action' );
+					url = 'morbidity_above_search.php';
+					// Get data as array, ['Bungoma', 'Kericho']
+					var counties = $('#search').find('input[name^="county"]').serialize();
+					var diseases = $('#search').find('input[name^="diseases"]').serialize();
+					var year = $('#search').find('input[name^="year"]').serialize();
+
+			  /* Send the data using post with element id county and diseases */
+			  var posting = $.post( url, { county: counties, diseases: diseases, year: year} );
+
+			  /* Alerts the results */
+			  posting.done(function( data ) {
+				//alert('success');
+				console.log(data);
+				$('#table_data').empty();
+				$('#table_data').append(data);
+			  });
+			});
+
+		var options = [];
+
+			$( '.dropdown-content a' ).on( 'click', function( event ) {
+
+			   var $target = $( event.currentTarget ),
+				   val = $target.attr( 'data-value' ),
+				   $inp = $target.find( 'input' ),
+				   idx;
+				if(val=='county'){
+					if ($("#dropdown_county #county_all").is(':checked')) {
+						$("#dropdown_county input[type=checkbox]").each(function () {
+							$(this).prop("checked", false);
+						});
+					} else {
+						$("#dropdown_county input[type=checkbox]").each(function () {
+							$(this).prop("checked", true);
+						});
+					}
+				}
+
+				if(val=='disease'){
+
+					if ($("#dropdown_disease #disease_all").is(':checked')) {
+						$("#dropdown_disease input[type=checkbox]").each(function () {
+							$(this).prop("checked", false);
+						});
+					} else {
+						$("#dropdown_disease input[type=checkbox]").each(function () {
+							$(this).prop("checked", true);
+						});
+					}
+				}
+
+			   if ( ( idx = options.indexOf( val ) ) > -1 ) {
+				  options.splice( idx, 1 );
+				  setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+			   } else {
+				  options.push( val );
+				  setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+			   }
+
+			   $( event.target ).blur();
+
+			   console.log( options );
+			   return false;
+			});
+
+
+		</script>
+
+
+
+
+    </body>
+</html>

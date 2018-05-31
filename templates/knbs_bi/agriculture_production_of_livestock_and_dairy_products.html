@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Production of Livestock and Dairy Products</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Loyalty Club dashboard" />
+		<meta name="keywords" content="web,loyalty club" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+        {% load staticfiles %}
+
+		<link rel="shortcut icon" href="{% static 'knbs_bi/assets/images/icon.png ' %}">
+
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}"  rel="stylesheet">
+
+
+         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript">
+
+            function load_product(id, category, by_product, unit, value, year){
+                localStorage.clear();
+                localStorage.setItem("id", id);
+                localStorage.setItem("category", category);
+                localStorage.setItem("by_product", by_product);
+                localStorage.setItem("unit", unit);
+                localStorage.setItem("value", value);
+                localStorage.setItem("year", year);
+                window.location.replace("/production_of_livestock_and_dairy_products_edit");
+
+            }
+        </script>
+
+
+    </head>
+    <body>
+
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Production of Livestock and Dairy Products</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Production of Livestock and Dairy Products Data</span>
+
+                                {% if products %}
+
+								<a href="/production_of_livestock_and_dairy_products_add" class="btn maroon waves-effect waves-light " >Add
+									<i class="material-icons right">add</i>
+								</a>
+
+                               <table id="example" class="display responsive-table datatable-example">
+                                    <thead>
+                                        <tr>
+											<th></th>
+                                            <th>Category</th>
+											<th>By Product</th>
+											<th>Unit</th>
+                                            <th>Value</th>
+                                            <th>Year</th>
+											<th>Edit </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										{% for product in products %}
+                                        <tr>
+											<td></td>
+											<td >{{ product.category }}</td>
+                                            <td >{{ product.by_product }}</td>
+											<td >{{ product.unit }}</td>
+											<td >{{ product.value }}</td>
+                                            <td >{{ product.year }}</td>
+                                            <td ><button class="waves-effect waves-light btn orange " onclick="load_product({{ product.id }}
+                                                    ,'{{ product.category }}', '{{ product.by_product }}', '{{ product.unit }}'
+                                                    , {{ product.value }}, {{ product.year }})"> Edit </button></td></tr>
+										{% endfor %}
+                                    </tbody>
+                                </table>
+
+                                {% else %}
+											<p> You currently have no data</p>
+								{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/table-data.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+
+    </body>
+</html>

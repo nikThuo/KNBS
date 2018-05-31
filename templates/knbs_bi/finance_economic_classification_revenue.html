@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Economic Classification Revenue</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Loyalty Club dashboard" />
+		<meta name="keywords" content="web,loyalty club" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+        {% load staticfiles %}
+
+
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}"  rel="stylesheet">
+
+
+         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+        <script type="text/javascript">
+
+            function viewEconomic(tax_income, tax_property, tax_vat, tax_good, tax_trade, other_tax, total_tax, security, income, sales,
+            fines, repayment, receipts, revenue, total, year){
+                localStorage.clear();
+                localStorage.setItem("tax_income", tax_income);
+                localStorage.setItem("tax_property", tax_property);
+                localStorage.setItem("tax_vat", tax_vat);
+                localStorage.setItem("tax_good", tax_good);
+                localStorage.setItem("tax_trade", tax_trade);
+                localStorage.setItem("other_tax", other_tax);
+                localStorage.setItem("total_tax", total_tax);
+                localStorage.setItem("security", security);
+                localStorage.setItem("income", income);
+                localStorage.setItem("sales", sales);
+                localStorage.setItem("fines", fines);
+                localStorage.setItem("repayment", repayment);
+                localStorage.setItem("receipts", receipts);
+                localStorage.setItem("revenue", revenue);
+                localStorage.setItem("total", total);
+                localStorage.setItem("year", year);
+                window.location.replace("/economic_classification_revenue_view");
+
+            }
+
+            function load_economic(id, tax_income, tax_property, tax_vat, tax_good, tax_trade, other_tax, total_tax, security, income, sales,
+            fines, repayment, receipts, revenue, total, year){
+                localStorage.clear();
+                localStorage.setItem("id", id);
+                localStorage.setItem("tax_income", tax_income);
+                localStorage.setItem("tax_property", tax_property);
+                localStorage.setItem("tax_vat", tax_vat);
+                localStorage.setItem("tax_good", tax_good);
+                localStorage.setItem("tax_trade", tax_trade);
+                localStorage.setItem("other_tax", other_tax);
+                localStorage.setItem("total_tax", total_tax);
+                localStorage.setItem("security", security);
+                localStorage.setItem("income", income);
+                localStorage.setItem("sales", sales);
+                localStorage.setItem("fines", fines);
+                localStorage.setItem("repayment", repayment);
+                localStorage.setItem("receipts", receipts);
+                localStorage.setItem("revenue", revenue);
+                localStorage.setItem("total", total);
+                localStorage.setItem("year", year);
+                window.location.replace("/economic_classification_revenue_edit");
+
+
+            }
+        </script>
+
+
+    </head>
+    <body>
+
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Economic Classification Revenue</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Economic Classification Revenue Data</span>
+
+                                {% if economics %}
+
+								<a href="/economic_classification_revenue_add" class="btn maroon waves-effect waves-light " >Add
+									<i class="material-icons right">add</i>
+								</a>
+
+                               <table id="example" class="display responsive-table datatable-example">
+                                    <thead>
+                                        <tr>
+											<th></th>
+                                            <th>Income Profits Capital Gains</th>
+											<th>Property</th>
+											<th>VAT</th>
+                                            <th>Other Goods and Services</th>
+                                            <th>View</th>
+											<th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										{% for economic in economics %}
+                                        <tr>
+											<td></td>
+											<td >{{ economic.tax_income }}</td>
+                                            <td >{{ economic.tax_property }}</td>
+											<td >{{ economic.tax_vat }}</td>
+											<td >{{ economic.tax_good }}</td>
+                                            <td ><button class="waves-effect waves-light btn orange "
+                                                         onclick="viewEconomic({{ economic.tax_income }}, {{ economic.tax_property }}, {{ economic.tax_vat }}, {{ economic.tax_good }}
+                                                                 ,{{ economic.tax_trade }}, {{ economic.other_tax }}, {{ economic.total_tax }}
+                                                                 , {{ economic.security }}, {{ economic.income }}, {{ economic.sales }}
+                                                                 ,{{ economic.fines }}, {{ economic.repayment }}, {{ economic.receipts }}
+                                                                 ,{{ economic.revenue }}, {{ economic.total }},{{ economic.year }})"> View </button></td>
+
+                                            <td ><button class="waves-effect waves-light btn orange " onclick="load_economic({{ economic.id }},{{ economic.tax_income }}, {{ economic.tax_property }}, {{ economic.tax_vat }}, {{ economic.tax_good }}
+                                                                 ,{{ economic.tax_trade }}, {{ economic.other_tax }}, {{ economic.total_tax }}
+                                                                 , {{ economic.security }}, {{ economic.income }}, {{ economic.sales }}
+                                                                 ,{{ economic.fines }}, {{ economic.repayment }}, {{ economic.receipts }}
+                                                                 ,{{ economic.revenue }}, {{ economic.total }},{{ economic.year }})"> Edit </button></td>
+                                        </tr>
+										{% endfor %}
+                                    </tbody>
+                                </table>
+
+                                {% else %}
+											<p> You currently have no data</p>
+								{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/table-data.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+
+    </body>
+</html>

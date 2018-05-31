@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Agriculture Gross Market Production</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+
+        {% load staticfiles %}
+
+         <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Agriculture Gross Market Production Input</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Agriculture Gross Market Production Data</span><br>
+								<a href="/gross_market_production" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+
+{#										<?php #}
+{#								#}
+{#									$view = mysqli_query($con,"SELECT * FROM irrigation_schemes #}
+{#																WHERE irrigation_schemes_id ='$id'");#}
+{#									#}
+{#									while ($rowView = mysqli_fetch_assoc($view)){#}
+{#									#}
+{#										$ahero_gross_value_of_crop_millions  = $rowView['ahero_gross_value_of_crop_millions'];#}
+{#										$ahero_hectares_cropped = $rowView['ahero_hectares_cropped'];#}
+{#										$ahero_number_of_plots_holders= $rowView['ahero_number_of_plots_holders'];#}
+{#										$ahero_paddy_yields_tonnes = $rowView['ahero_paddy_yields_tonnes'];#}
+{#										$ahero_payments_to_plot_holders_millions = $rowView['ahero_payments_to_plot_holders_millions'];#}
+{#										$all_schemes_gross_value_of_crop_millions = $rowView['all_schemes_gross_value_of_crop_millions'];#}
+{#										$all_schemes_hectares_cropped = $rowView['all_schemes_hectares_cropped'];#}
+{#										$all_schemes_number_of_plots_holders = $rowView['all_schemes_number_of_plots_holders'];#}
+{#										$all_schemes_paddy_yields_tonnes = $rowView['all_schemes_paddy_yields_tonnes'];#}
+{#										$all_schemes_payments_to_plot_holders_millions = $rowView['all_schemes_payments_to_plot_holders_millions'];#}
+{#										$bunyala_gross_value_of_crop_millions = $rowView['bunyala_gross_value_of_crop_millions'];#}
+{#										$bunyala_hectares_cropped = $rowView['bunyala_hectares_cropped'];;#}
+{#										$bunyala_number_of_plots_holders = $rowView['bunyala_number_of_plots_holders'];#}
+{#										$bunyala_paddy_yields_tonnes = $rowView['bunyala_paddy_yields_tonnes'];#}
+{#										$bunyala_payments_to_plot_holders_millions = $rowView['bunyala_payments_to_plot_holders_millions'];#}
+{#										$mwea_gross_value_of_crop_millions = $rowView['mwea_gross_value_of_crop_millions'];#}
+{#										$mwea_number_of_plots_holders = $rowView['mwea_number_of_plots_holders'];#}
+{#										$mwea_paddy_yields_tonnes = $rowView['mwea_paddy_yields_tonnes'];#}
+{#										$mwea_payments_to_plot_holders_million = $rowView['mwea_payments_to_plot_holders_million'];#}
+{#										$perkerra_gross_value_of_crop_millions = $rowView['perkerra_gross_value_of_crop_millions'];#}
+{#										$perkerra_hectares_cropped = $rowView['perkerra_hectares_cropped'];#}
+{#										$pekerra_number_of_plots_holders = $rowView['perkerra_number_of_plots_holders'];#}
+{#										$perkerra_payments_to_plot_holders_millions = $rowView['perkerra_payments_to_plot_holders_millions'];#}
+{#										$perkerra_seed_maize_tonnes = $rowView['perkerra_seed_maize_tonnes'];#}
+{#										$west_kano_gross_value_of_crop_millions = $rowView['west_kano_gross_value_of_crop_millions'];#}
+{#										$west_kano_hectares_cropped = $rowView['west_kano_hectares_cropped'];#}
+{#										$west_kano_number_of_plots_holders = $rowView['west_kano_number_of_plots_holders'];#}
+{#										$west_kano_paddy_yields_tonnes = $rowView['west_kano_paddy_yields_tonnes'];#}
+{#										$west_kano_payments_to_plot_holders_millions = $rowView['west_kano_payments_to_plot_holders_millions'];#}
+{#										$year = $rowView['year'];#}
+{##}
+{#								}#}
+{#								#}
+{#								?>#}
+                                    <form action="" method="POST" class="col s12">
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+												<input type="text" class="form-control" id="year" name="year"  value="" readonly/>
+                                                <label for="year">*Year</label>
+                                            </div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="form-control" id="cattle" name="cattle"  value="" readonly/>
+												<label for="ahero_gross_value_of_crop_millions">*Cattle and Calves for Slaughter</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="sugarcane" name="sugarcane"  value="" readonly/>
+												<label for="ahero_hectares_cropped ">*Sugarcane</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="vegetables" name="vegetables"  value="" readonly/>
+												<label for="ahero_number_of_plots_holders">*Vegetables</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="cutflowers" name="cutflowers"  value="" readonly/>
+												<label for="ahero_paddy_yields_tonnes">*Cutflowers</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="tea" name="tea"  value="" readonly/>
+												<label for="ahero_payments_to_plot_holders_millions">*Tea</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="fruits" name="fruits"  value="" readonly/>
+												<label for="all_schemes_gross_value_of_crop_millions">*Fruits</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="poultry" name="poultry"  value="" readonly/>
+												<label for="all_schemes_hectares_cropped">*Poultry and Eggs</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="wheat" name="wheat"  value="" readonly/>
+												<label for="all_schemes_number_of_plots_holders">*Wheat</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="sheep" name="sheep"  value="" readonly/>
+												<label for="all_schemes_paddy_yields_tonnes">*Sheep, Goats and Lambs for Slaughter</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="maize" name="maize"  value="" readonly/>
+												<label for="all_schemes_payments_to_plot_holders_millions">*Maize</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="coffee" name="coffee"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Coffee</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="barley" name="barley"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Barley</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="dairy" name="dairy"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Dairy Products</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="cotton" name="cotton"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Cotton</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="hides" name="hides"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Hides and Skins</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="cereals" name="cereals"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Other Cereals</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="crops" name="crops"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Other Temporary Crops</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="pigs" name="pigs"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Pigs for Slaughter</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="wool" name="wool"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Wool</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="potatoes" name="potatoes"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Potatoes</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="pulses" name="pulses"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Pulses</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="pyrethrum" name="pyrethrum"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Pyrethrum</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="rice" name="rice"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Rice Paddy</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="tobacco" name="tobacco"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Tobacco</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="total" name="total"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Total</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="email" class="form-control" id="grand_total" name="grand_total"  value="" readonly/>
+												<label for="bunyala_gross_value_of_crop_millions">*Grand Total</label>
+											</div>
+
+
+										</div>
+
+										<div class="row">
+											<div class="col s4">
+												<a href="/gross_market_production" class="btn maroon waves-effect waves-light " >
+                                                    <i class="material-icons right">highlight_off</i>
+                                                    Close
+                                                </a>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+        <script>
+
+            $ (function (){
+                $('#year').val(localStorage.getItem("year"));
+                $('#cattle').val(localStorage.getItem("cattle"));
+                $('#sugarcane').val(localStorage.getItem("sugarcane"));
+                $('#vegetables').val(localStorage.getItem("vegetables"));
+                $('#cutflowers').val(localStorage.getItem("cutflowers"));
+                $('#tea').val(localStorage.getItem("tea"));
+                $('#fruits').val(localStorage.getItem("fruits"));
+                $('#poultry').val(localStorage.getItem("poultry"));
+                $('#wheat').val(localStorage.getItem("wheat"));
+                $('#sheep').val(localStorage.getItem("sheep"));
+                $('#maize').val(localStorage.getItem("maize"));
+                $('#coffee').val(localStorage.getItem("coffee"));
+                $('#barley').val(localStorage.getItem("barley"));
+                $('#dairy').val(localStorage.getItem("dairy"));
+                $('#cotton').val(localStorage.getItem("cotton"));
+                $('#hides').val(localStorage.getItem("hides"));
+                $('#cereals').val(localStorage.getItem("cereals"));
+                $('#crops').val(localStorage.getItem("crops"));
+                $('#pigs').val(localStorage.getItem("pigs"));
+                $('#wool').val(localStorage.getItem("wool"));
+                $('#potatoes').val(localStorage.getItem("potatoes"));
+                $('#pulses').val(localStorage.getItem("pulses"));
+                $('#pyrethrum').val(localStorage.getItem("pyrethrum"));
+                $('#rice').val(localStorage.getItem("rice"));
+                $('#tobacco').val(localStorage.getItem("tobacco"));
+                $('#total').val(localStorage.getItem("total"));
+                $('#grand_total').val(localStorage.getItem("grand_total"));
+
+            });
+
+        </script>
+
+		<script type="text/javascript">
+
+			$('input.validate').keyup(function(event) {
+
+			  // skip for arrow keys
+			  if(event.which >= 37 && event.which <= 40) return;
+
+			  // format number
+			  $(this).val(function(index, value) {
+				return value
+				.replace(/\D/g, "")
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+				;
+			  });
+			});
+
+		</script>
+
+{#		<?php if(isset($msg)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $msg; ?>", 4000) #}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

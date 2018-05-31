@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+		<title>Health | KNBS</title>
+		<meta charset="utf-8">
+		<meta name="description" content="Mastamap Webapp" />
+		<meta name="keywords" content="web,mastamap" />
+		<meta name="author" content="Ron" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        {% load staticfiles %}
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+            {% include 'knbs_bi/side_menu.html' %}
+           <main class="mn-inner inner-active-sidebar">
+                <div class="content">
+                    <p style="font-family:verdana; color:#73bf5a;"> <strong>County Datasets</strong></p>
+                    <div class="row no-m-t no-m-b">
+						<div class="col s12 m6 l4">
+							<a href="/labour_employment_public_sector">
+								<div class="card stats-card">
+									<div class="card-content">
+										<span class="card-title">County Employment Public Sector</span>
+										<span class="stats-counter">
+											<?php
+												$response = total_single_year("rate","health_immunization_rate");
+
+												if($response!=0){
+													$total = $response[0]['total'];
+													$year = $response[0]['year'];
+												}
+											?>
+										<span class="counter"><small id="employment_ps"></small></span>
+										</span>
+									</div>
+								</div>
+							</a>
+						</div>
+
+
+
+
+					</div><br>
+
+                    <p style="font-family:verdana; color:#73bf5a;"> <strong>National Datasets</strong></p>
+
+                    <div class="row no-m-t no-m-b">
+
+
+
+
+
+					</div>
+				</div>
+            </div>
+        </main>
+
+        </div>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+        <script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+
+
+        <script>
+            var requests = [{year: "employment_ps", id: "#employment_ps"}]
+
+            function getYear(obj){
+                var address = ["http://192.168.170.227:8000/getYear", "http://41.89.6.97:8000/getYear"];
+                var arrayLength = address.length;
+                for (var i = 0; i < arrayLength; i++) {
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": address[i],
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                            "postman-token": "1c2e1c70-01df-4d94-94d9-3ffcde3ae041"
+                        },
+                        "data": {
+                            "year": obj.year
+                        }
+                    }
+                    {#                                            console.log("Passed", $('#county_revenue').val())#}
+                    $.ajax(settings).done(function (data) {
+                        $(obj.id).text("Last Update: " + data.year.year__max);
+                        {#                                                console.log('debug recent', JSON.stringify(data, null, 4));#}
+                        {#                                              $('#county_revenue').val("data")#}
+                        {#                                                document.getElementById('county_revenue').innerHTML += " "                                              console.log(data);#}
+                    });
+                }
+
+            }
+            requests.map(getYear)
+        </script>
+
+{#		<?php#}
+{#		if ($error!=null) {#}
+{#		?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php  $error; ?>", 4000)#}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+
+    </body>
+</html>

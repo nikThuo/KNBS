@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>County Expenditure</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">County Expenditure</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">County Expenditure Details</span><br>
+								<a href="/county_expenditure" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="" class="col s12">
+
+                                    {% csrf_token %}
+
+                                        <div class="row">
+                                            <div class="row">
+                                            <div class="input-field col s12 m6">
+												<select name="county_id" id="county_id">
+													<option value="">County...</option>
+													{% for county in counties %}
+                                                        <option value="{{ county.county_name }}">{{ county.county_name }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="text" class="validate" id="employees" name="employees" required/>
+												<label for="ahero_gross_value_of_crop_millions">*Compensation Employees</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="text" class="validate" id="services" name="services"  required/>
+												<label for="ahero_hectares_cropped ">*Goods and Services</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="subsidies" name="subsidies"  required/>
+												<label for="ahero_number_of_plots_holders">*Subsidies</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="international" name="international"  required/>
+												<label for="ahero_paddy_yields_tonnes">*Grants International Organisation</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="government" name="government"  required/>
+												<label for="ahero_payments_to_plot_holders_millions">*Grants Goverment Units</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="other_grants" name="other_grants"  required/>
+												<label for="all_schemes_gross_value_of_crop_millions">*Other Grants</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="capital_grants" name="capital_grants"  required/>
+												<label for="all_schemes_hectares_cropped">*Capital Grants</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="benefits" name="benefits"  required/>
+												<label for="all_schemes_number_of_plots_holders">*Social Benefits</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="expenses" name="expenses"  required/>
+												<label for="all_schemes_paddy_yields_tonnes">*Other Expenses</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="structures" name="structures"  required/>
+												<label for="all_schemes_payments_to_plot_holders_millions">*Building Structures </label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="equipment" name="equipment"  required/>
+												<label for="bunyala_gross_value_of_crop_millions">*Plant Machinery Equipment</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="inventory" name="inventory"  required/>
+												<label for="bunyala_hectares_cropped">*Inventories</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="assets" name="assets"  required/>
+												<label for="bunyala_number_of_plots_holders">*Other Assets</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="financial_assets" name="financial_assets"  required/>
+												<label for="bunyala_paddy_yields_tonnes">*Acquisition Financial Assets</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="debt" name="debt"  required/>
+												<label for="bunyala_payments_to_plot_holders_millions">*Interest Debt</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="text" class="validate" id="total" name="total"  required/>
+												<label for="mwea_gross_value_of_crop_millions">*Total</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+
+
+										</div>
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" id="updateData">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>iv>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+		<script type="text/javascript">
+		/*
+			$('input.validate').keyup(function(event) {
+
+			  // skip for arrow keys
+			  if(event.which >= 37 && event.which <= 40) return;
+
+			  // format number
+			  $(this).val(function(index, value) {
+				return value
+				.replace(/\D/g, "")
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+				;
+			  });
+			});
+			*/
+		</script>
+{#		#}
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000) #}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+{#        #}
+    <script>
+
+            $ (function (){
+                $('select#county_id').val(localStorage.getItem("county"));$('select#county_id').material_select();
+                $('#employees').val(localStorage.getItem("employees"));
+                $('#services').val(localStorage.getItem("services"));
+                $('#subsidies').val(localStorage.getItem("subsidies"));
+                $('#international').val(localStorage.getItem("international"));
+                $('#government').val(localStorage.getItem("government"));
+                $('#other_grants').val(localStorage.getItem("other_grants"));
+                $('#capital_grants').val(localStorage.getItem("capital_grants"));
+                $('#benefits').val(localStorage.getItem("benefits"));
+                $('#expenses').val(localStorage.getItem("expense"));
+                $('#structures').val(localStorage.getItem("structures"));
+                $('#equipment').val(localStorage.getItem("equipment"));
+                $('#inventory').val(localStorage.getItem("inventory"));
+                $('#assets').val(localStorage.getItem("assets"));
+                $('#financial_assets').val(localStorage.getItem("financial_assets"));
+                $('#debt').val(localStorage.getItem("debt"));
+                $('#total').val(localStorage.getItem("total"));
+                $('select#year').val(localStorage.getItem("year"));$('select#year').material_select();
+            });
+
+            $("#updateData").click(function (e) {
+                e.preventDefault();
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/finance/edit_county_expenditure",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                            "county": $('#county_id').val(),
+                            "employees": $('#employees').val(),
+                            "services": $('#services').val(),
+                            "subsidies": $('#subsidies').val(),
+                            "international": $('#international').val(),
+                            "government": $('#government').val(),
+                            "other_grants": $('#other_grants').val(),
+                            "capital_grants": $('#capital_grants').val(),
+                            "benefits": $('#benefits').val(),
+                            "expense": $('#expenses').val(),
+                            "structures": $('#structures').val(),
+                            "equipment": $('#equipment').val(),
+                            "inventory": $('#inventory').val(),
+                            "assets": $('#assets').val(),
+                            "financial_assets": $('#financial_assets').val(),
+                            "debt": $('#debt').val(),
+                            "total": $('#total').val(),
+                            "year": $('#year').val(),
+                            "expenditure": localStorage.getItem("id")
+                        }
+                    }
+                    $('#county_id').val('');
+                    $('#employees').val('');
+                    $('#services').val('');
+                    $('#subsidies').val('');
+                    $('#international').val('');
+                    $('#government').val('');
+                    $('#other_grants').val('');
+                    $('#capital_grants').val('');
+                    $('#benefits').val('');
+                    $('#expenses').val('');
+                    $('#structures').val('');
+                    $('#equipment').val('');
+                    $('#inventory').val('');
+                    $('#assets').val('');
+                    $('#financial_assets').val('');
+                    $('#debt').val('');
+                    $('#total').val('');
+                    $('#year').val('');
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Editted Successfully");
+                        console.log(response);
+                    });
+
+            })
+
+        </script>
+
+
+    </body>
+</html>

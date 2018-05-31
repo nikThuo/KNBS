@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Title -->
+        <title>Economic Classification Revenue</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="UTF-8">
+        <meta name="description" content="Responsive Admin Dashboard Template" />
+        <meta name="keywords" content="admin,dashboard" />
+        <meta name="author" content="Ron" />
+
+        {% load staticfiles %}
+
+        <!-- Styles -->
+        <link type="text/css" rel="stylesheet" href="{% static 'knbs_bi/assets/plugins/materialize/css/materialize.min.css' %}"/>
+        <link href="{% static 'knbs_bi/assets/css/material.css' %}" rel="stylesheet">
+        <link href="{% static 'knbs_bi/assets/plugins/material-preloader/css/materialPreloader.min.css' %}" rel="stylesheet">
+
+        <!-- Theme Styles -->
+        <link href="{% static 'knbs_bi/assets/css/alpha.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'knbs_bi/assets/css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body >
+        <div class="loader-bg"></div>
+        <div class="loader">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-spinner-teal lighten-1">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div><div class="gap-patch">
+                    <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mn-content fixed-sidebar">
+
+            {% include 'knbs_bi/side_menu.html' %}
+            <main class="mn-inner">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="page-title">Economic Classification Revenue</div>
+                    </div>
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Economic Classification Revenue Details</span><br>
+								<a href="/economic_classification_revenue" class="btn maroon waves-effect waves-light " >
+									<i class="material-icons right">arrow_left</i>
+									Back
+								</a>
+                                <div class="row">
+                                    <form action="" method="" class="col s12">
+
+                                    {% csrf_token %}
+
+                                        <div class="row">
+
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="tax_income" name="tax_income" required/>
+												<label for="tax_income">*Income Profits Capital Gains</label>
+											</div>
+                                            <div class="input-field col s12 m6">
+												<input type="number" class="validate" id="tax_property" name="tax_property"  required/>
+												<label for="tax_property ">*Property</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="tax_vat" name="tax_vat"  required/>
+												<label for="tax_vat">*VAT</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="tax_good" name="tax_good"  required/>
+												<label for="tax_good">*Other Goods and Services</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="tax_trade" name="tax_trade"  required/>
+												<label for="tax_trade">*International Trade Transaction</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="other_tax" name="other_tax"  required/>
+												<label for="other_tax">*Other Taxes Not Elsewhere Classified</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="total_tax" name="total_tax"  required/>
+												<label for="total_tax">*Total Tax Revenue</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="security" name="security"  required/>
+												<label for="security">*Social Security Contributions</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="income" name="income"  required/>
+												<label for="income">*Property Income</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="sales" name="sales"  required/>
+												<label for="sales">*Sales of Good and Services</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="fines" name="fines"  required/>
+												<label for="fines">*Fines, Penalties and Forfeitures</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="repayment" name="repayment"  required/>
+												<label for="repayment">*Repayments Domestic Lending</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="receipts" name="receipts"  required/>
+												<label for="receipts">*Other Receipts Not Elsewhere Classified</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="revenue" name="revenue"  required/>
+												<label for="revenue">*Total Non Tax Revenue</label>
+											</div>
+											<div class="input-field col s12 m6">
+												<input type="number" class="validate" id="total" name="total"  required/>
+												<label for="total">*Total</label>
+											</div>
+
+                                            <div class="input-field col s12 m6">
+												<select name="year" id="year">
+													<option value="">Year...</option>
+													{% for i in 1990|range:2031 %}
+                                                        <option value="{{ i }}">{{ i }}</option>
+                                                    {% endfor %}
+												</select>
+											</div>
+
+
+										</div>
+
+										<div class="row">
+											<div class="col s4">
+												<button class="btn maroon waves-effect waves-light " type="submit" name="submit" id="updateData">Submit
+													<i class="material-icons right">send</i>
+												</button>
+											</div>
+										</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>iv>
+        <div class="left-sidebar-hover"></div>
+
+        <!-- Javascripts -->
+		<script src="{% static 'knbs_bi/assets/plugins/jquery/jquery-2.2.0.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/materialize/js/materialize.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/material-preloader/js/materialPreloader.min.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/plugins/jquery-blockui/jquery.blockui.js' %}"></script>
+        <script src="{% static 'knbs_bi/assets/js/alpha.min.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/js/pages/form_elements.js' %}"></script>
+		<script src="{% static 'knbs_bi/assets/plugins/google-code-prettify/prettify.js' %}"></script>
+
+		<script type="text/javascript">
+		/*
+			$('input.validate').keyup(function(event) {
+
+			  // skip for arrow keys
+			  if(event.which >= 37 && event.which <= 40) return;
+
+			  // format number
+			  $(this).val(function(index, value) {
+				return value
+				.replace(/\D/g, "")
+				.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+				;
+			  });
+			});
+			*/
+		</script>
+{#		#}
+{#		<?php if(isset($response)){?>#}
+{#		<script>#}
+{#		$( document ).ready(function() {#}
+{#			Materialize.toast("<?php echo $response; ?>", 4000) #}
+{#			});#}
+{#		</script>#}
+{#		<?php } ?>#}
+{#        #}
+    <script>
+
+            $ (function (){
+                $('#tax_income').val(localStorage.getItem("tax_income"));
+                $('#tax_property').val(localStorage.getItem("tax_property"));
+                $('#tax_vat').val(localStorage.getItem("tax_vat"));
+                $('#tax_good').val(localStorage.getItem("tax_good"));
+                $('#tax_trade').val(localStorage.getItem("tax_trade"));
+                $('#other_tax').val(localStorage.getItem("other_tax"));
+                $('#total_tax').val(localStorage.getItem("total_tax"));
+                $('#security').val(localStorage.getItem("security"));
+                $('#income').val(localStorage.getItem("income"));
+                $('#sales').val(localStorage.getItem("sales"));
+                $('#fines').val(localStorage.getItem("fines"));
+                $('#repayment').val(localStorage.getItem("repayment"));
+                $('#receipts').val(localStorage.getItem("receipts"));
+                $('#revenue').val(localStorage.getItem("revenue"));
+                $('#total').val(localStorage.getItem("total"));
+                $('select#year').val(localStorage.getItem("year"));$('select#year').material_select();
+            });
+
+            $("#updateData").click(function (e) {
+                e.preventDefault();
+
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": "/finance/edit_economic_revenue",
+                        "method": "POST",
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                            "cache-control": "no-cache",
+                        },
+                        "data": {
+                           "tax_income": $('#tax_income').val(),
+                            "tax_property": $('#tax_property').val(),
+                            "tax_vat": $('#tax_vat').val(),
+                            "tax_good": $('#tax_good').val(),
+                            "tax_trade": $('#tax_trade').val(),
+                            "other_tax": $('#other_tax').val(),
+                            "total_tax": $('#total_tax').val(),
+                            "security": $('#security').val(),
+                            "income": $('#income').val(),
+                            "sales": $('#sales').val(),
+                            "fines": $('#fines').val(),
+                            "repayment": $('#repayment').val(),
+                            "receipts": $('#receipts').val(),
+                            "revenue": $('#revenue').val(),
+                            "total": $('#total').val(),
+                            "year": $('#year').val(),
+                            "economic": localStorage.getItem("id")
+                        }
+                    }
+                    $('#tax_income').val('');
+                    $('#tax_property').val('');
+                    $('#tax_vat').val('');
+                    $('#tax_good').val('');
+                    $('#tax_trade').val('');
+                    $('#other_tax').val('');
+                    $('#total_tax').val('');
+                    $('#security').val('');
+                    $('#income').val('');
+                    $('#sales').val('');
+                    $('#fines').val('');
+                    $('#repayment').val('');
+                    $('#receipts').val('');
+                    $('#revenue').val('');
+                    $('#total').val('');
+                    $('#year').val('');
+
+                    $.ajax(settings).done(function (response) {
+                        alert("Editted Successfully");
+                        console.log(response);
+                    });
+
+            })
+
+        </script>
+
+
+    </body>
+</html>
