@@ -52,7 +52,7 @@ def chemicalFeedView(request):
 #view More
 def viewChemFeed(request):
     return render(request, template_name='knbs_bi/agriculture_chemical_med_feed_input_view.html')
-
+#all
 @api_view(http_method_names=['GET'])
 @renderer_classes((JSONRenderer,))
 def chemicalFeed(request):

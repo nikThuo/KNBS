@@ -170,6 +170,10 @@ from money_and_banking.views import commercialBanks, addCommercialBanks, editCom
     editBankingInstitutionView, inflationRatesView
 from political.views import allUnits, editUnitsView, addUnitsView, allUnitsView, political, editPolitical, addPolitical
 from population.views import populationSpecialGroup, populationSelectedAge, populationSex
+from tourism.models import Visitors_To_Museums
+from tourism.views import TouristArrivals, ConferencesHeld, TouristDepartures, TourismEarnings, \
+    Hotel_Occupancy_By_Residences, Hotels_By_Zone, All_Visitor_To_Parks, All_Visitors_To_Museums, \
+    All_Population_Proportion_That_Took_Trip
 from trade_and_commerce.views import tradeAmount, tradeID, tradeTitle, editTradeAmountView, addTradeAmountView, \
     tradeAmountView, trade_and_commerce, addTradeAmount, editTradeAmount
 from transport_and_communication.views import editTransportCommunication, addTransportCommunication, \
@@ -564,7 +568,15 @@ urlpatterns = [
     url(r'^money_and_banking/all_banking_institution', bankingInstitution),
     url(r'^money_and_banking/add_banking_institution', addBankingInstitution),
     url(r'^money_and_banking/edit_banking_institution', editBankingInstitution),
-
+    url(r'^tourism/all_arrivals', TouristArrivals),
+    url(r'^tourism/all_conferences', ConferencesHeld),
+    url(r'^tourism/all_departures', TouristDepartures),
+    url(r'^tourism/all_earnings', TourismEarnings),
+    url(r'^tourism/all_hotel_occupancy', Hotel_Occupancy_By_Residences),
+    url(r'^tourism/all_hotels_by_zone', Hotels_By_Zone),
+    url(r'^tourism/all_visitors_to_parks', All_Visitor_To_Parks),
+    url(r'^tourism/all_visitors_to_museums', All_Visitors_To_Museums),
+    url(r'^tourism/All_Population_Proportion_That_Took_Trip', All_Population_Proportion_That_Took_Trip),
     url(r'^home', index),
     url(r'^health$', health),
     url(r'^immunization_history$', allImmunizationRate),
